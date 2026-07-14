@@ -61,6 +61,13 @@ export default function HowItWorks() {
 
   return (
     <section className="section hiw" ref={rootRef}>
+      <div className="hiw-bg" aria-hidden>
+        <div className="hiw-bg-dots" />
+        <div className="hiw-bg-dots hiw-bg-dots-2" />
+        <div className="hiw-bg-streaks" />
+        <div className="hiw-bg-glow hiw-bg-glow-a" />
+        <div className="hiw-bg-glow hiw-bg-glow-b" />
+      </div>
       <div className="hiw-head">
         <p className="kicker">How it works</p>
         <h2 className="h-lg">

@@ -4,8 +4,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Apple, Play } from 'lucide-react'
 import MagneticButton from './MagneticButton'
 import Particles from './Particles'
+import { openBetaModal } from './BetaModal'
 import './downloadcta.css'
 import { asset } from '../lib/asset'
+
+const APP_STORE_URL = 'https://apps.apple.com/in/app/rydyt/id6575364023'
+const PLAY_STORE_URL =
+  'https://play.google.com/store/apps/details?id=com.moaiconsulting.rydyt&pcampaignid=web_share'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -63,14 +68,26 @@ export default function DownloadCTA() {
             Android, free while in early access.
           </p>
           <div className="cta-actions">
-            <MagneticButton>Join Early Access</MagneticButton>
+            <MagneticButton onClick={openBetaModal}>Join Early Access</MagneticButton>
             <div className="cta-stores">
-              <span className="cta-store glass" data-cursor="hover">
+              <a
+                className="cta-store glass"
+                data-cursor="hover"
+                href={APP_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Apple size={16} /> App Store
-              </span>
-              <span className="cta-store glass" data-cursor="hover">
+              </a>
+              <a
+                className="cta-store glass"
+                data-cursor="hover"
+                href={PLAY_STORE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <Play size={15} /> Google Play
-              </span>
+              </a>
             </div>
           </div>
         </div>

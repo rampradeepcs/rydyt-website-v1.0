@@ -4,6 +4,7 @@ import { Plus } from 'lucide-react'
 import { useMagnetic } from '../hooks/useMagnetic'
 import { scrollToTarget } from '../hooks/useSmoothScroll'
 import LogoMark from './LogoMark'
+import { openBetaModal } from './BetaModal'
 import './navbar.css'
 
 const EASE = [0.16, 1, 0.3, 1] as const
@@ -78,7 +79,8 @@ export default function Navbar() {
             data-cursor="hover"
             onClick={(e) => {
               e.preventDefault()
-              go('#download')
+              setOpen(false)
+              openBetaModal()
             }}
           >
             <span className="nav-beta-dot" />

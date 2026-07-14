@@ -14,6 +14,7 @@ import Stats from './components/Stats'
 import Community from './components/Community'
 import DownloadCTA from './components/DownloadCTA'
 import Footer from './components/Footer'
+import BetaModal from './components/BetaModal'
 
 export default function App() {
   const [ready, setReady] = useState(false)
@@ -24,6 +25,7 @@ export default function App() {
   return (
     <>
       <Loader onDone={onLoaderDone} />
+      <BetaModal />
       <Cursor />
       <Navbar />
       <main>

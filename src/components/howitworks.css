@@ -1,5 +1,98 @@
 .hiw {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(180deg, #060607 0%, var(--bg) 100%);
+}
+
+/* ---------- animated backdrop ---------- */
+.hiw-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hiw-bg-dots {
+  position: absolute;
+  inset: -140px;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1.5px);
+  background-size: 34px 34px;
+  mask-image: radial-gradient(75% 70% at 50% 45%, #000 20%, transparent 100%);
+  animation: hiw-drift 46s linear infinite;
+}
+
+.hiw-bg-dots-2 {
+  background-image: radial-gradient(rgba(232, 35, 42, 0.12) 1px, transparent 1.5px);
+  background-size: 90px 90px;
+  animation: hiw-drift 70s linear infinite reverse;
+}
+
+@keyframes hiw-drift {
+  to {
+    transform: translate3d(140px, 140px, 0);
+  }
+}
+
+/* faint diagonal speed streaks flowing upward */
+.hiw-bg-streaks {
+  position: absolute;
+  inset: -60% -20%;
+  background: repeating-linear-gradient(
+    115deg,
+    transparent 0 140px,
+    rgba(232, 35, 42, 0.045) 140px 143px,
+    transparent 143px 260px,
+    rgba(255, 255, 255, 0.025) 260px 262px
+  );
+  animation: hiw-streaks 26s linear infinite;
+}
+
+@keyframes hiw-streaks {
+  to {
+    transform: translate3d(-420px, 190px, 0);
+  }
+}
+
+/* slow-breathing glow blobs */
+.hiw-bg-glow {
+  position: absolute;
+  width: 46vw;
+  height: 46vw;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.5;
+}
+
+.hiw-bg-glow-a {
+  top: 6%;
+  left: -16%;
+  background: radial-gradient(circle, rgba(232, 35, 42, 0.14), transparent 65%);
+  animation: hiw-blob-a 18s ease-in-out infinite;
+}
+
+.hiw-bg-glow-b {
+  bottom: 2%;
+  right: -14%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05), transparent 65%);
+  animation: hiw-blob-b 22s ease-in-out infinite;
+}
+
+@keyframes hiw-blob-a {
+  50% {
+    transform: translate3d(9vw, 7vh, 0) scale(1.15);
+    opacity: 0.75;
+  }
+}
+
+@keyframes hiw-blob-b {
+  50% {
+    transform: translate3d(-8vw, -9vh, 0) scale(1.1);
+  }
+}
+
+.hiw-head,
+.hiw-steps {
+  position: relative;
+  z-index: 1;
 }
 
 .hiw-head {

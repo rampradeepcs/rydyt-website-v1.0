@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Play, ChevronDown } from 'lucide-react'
 import MagneticButton from './MagneticButton'
 import Particles from './Particles'
+import { openBetaModal } from './BetaModal'
 import './hero.css'
 import { asset } from '../lib/asset'
 
@@ -130,7 +131,7 @@ export default function Hero() {
             <MagneticButton variant="ghost" href="#features">
               <Play size={13} /> Watch Demo
             </MagneticButton>
-            <MagneticButton variant="ghost" href="#download">
+            <MagneticButton variant="ghost" onClick={openBetaModal}>
               Join Beta
             </MagneticButton>
           </motion.div>

@@ -262,14 +262,14 @@
 }
 
 .chip-a {
-  top: 12%;
-  left: -6%;
+  top: 19%;
+  left: 12%;
   animation-delay: 0.4s;
 }
 
 .chip-b {
-  top: 46%;
-  right: 16%;
+  top: 42%;
+  right: 11%;
   animation-delay: 1.3s;
 }
 
@@ -279,8 +279,8 @@
 }
 
 .chip-c {
-  bottom: 14%;
-  left: 2%;
+  bottom: 21%;
+  left: 10%;
   animation-delay: 2.2s;
 }
 

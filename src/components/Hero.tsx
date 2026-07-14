@@ -52,17 +52,6 @@ export default function Hero() {
           scrub: true,
         },
       })
-      gsap.to('.hero-scene-wrap', {
-        yPercent: 12,
-        scale: 0.94,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: rootRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-      })
     }, rootRef)
     return () => ctx.revert()
   }, [])

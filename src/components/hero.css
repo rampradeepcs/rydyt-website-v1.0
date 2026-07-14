@@ -179,7 +179,6 @@
   z-index: 2;
   transform: rotateY(-16deg) rotateX(5deg) rotateZ(-3deg);
   transform-style: preserve-3d;
-  animation: iphone-hover 6.5s ease-in-out infinite;
   pointer-events: none;
 }
 
@@ -208,12 +207,6 @@
   background-size: 300% 100%;
   animation: iphone-sheen 7s ease-in-out infinite;
   mix-blend-mode: screen;
-}
-
-@keyframes iphone-hover {
-  50% {
-    translate: -50% calc(-50% - 16px);
-  }
 }
 
 @keyframes iphone-sheen {

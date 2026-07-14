@@ -156,19 +156,20 @@ export default function Hero() {
               <div className="iphone-sheen" aria-hidden />
             </div>
             {CHIPS.map((c) => (
-              <motion.div
-                key={c.label}
-                className={`hero-chip glass ${c.pos}`}
-                initial={{ opacity: 0, y: 14, scale: 0.92 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                transition={{ delay: c.delay, duration: 0.9, ease: EASE }}
-              >
-                <span className="hero-chip-dot" />
-                <div>
-                  <strong>{c.label}</strong>
-                  <small>{c.sub}</small>
-                </div>
-              </motion.div>
+              <div key={c.label} className={`hero-chip-pos ${c.pos}`}>
+                <motion.div
+                  className="hero-chip glass"
+                  initial={{ opacity: 0, y: 14, scale: 0.92 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  transition={{ delay: c.delay, duration: 0.9, ease: EASE }}
+                >
+                  <span className="hero-chip-dot" />
+                  <div>
+                    <strong>{c.label}</strong>
+                    <small>{c.sub}</small>
+                  </div>
+                </motion.div>
+              </div>
             ))}
           </div>
         </motion.div>

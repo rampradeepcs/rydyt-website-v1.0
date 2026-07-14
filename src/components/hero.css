@@ -134,19 +134,18 @@
   aspect-ratio: 5 / 6;
 }
 
-/* desktop: the scene is driven by the hero's height and rests on its bottom edge */
+/* desktop: the scene fills the hero's height; phone centers within it */
 @media (min-width: 900px) {
   .hero-scene-wrap {
-    align-items: flex-end;
+    align-items: center;
     height: 100%;
   }
 
   .hero-scene {
     width: auto;
-    height: min(88%, 820px);
+    height: 100%;
     max-width: 44vw;
   }
-
 }
 
 /* --- floating 3D iPhone --- */
@@ -221,16 +220,21 @@
   }
 }
 
-.hero-chip {
+/* outer div owns 3D position/depth; inner motion.div owns entrance animation */
+.hero-chip-pos {
   position: absolute;
+  transform: translateZ(160px);
+  z-index: 4;
+  animation: chip-float 6s ease-in-out infinite;
+}
+
+.hero-chip {
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 11px 16px;
   border-radius: 14px;
   white-space: nowrap;
-  transform: translateZ(60px);
-  animation: chip-float 6s ease-in-out infinite;
 }
 
 .hero-chip strong {
@@ -264,7 +268,7 @@
 
 .chip-b {
   top: 46%;
-  right: 6%;
+  right: 16%;
   animation-delay: 1.3s;
 }
 

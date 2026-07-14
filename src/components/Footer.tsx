@@ -8,15 +8,23 @@ import './footer.css'
 const SOCIALS = [
   {
     name: 'Instagram',
+    href: 'https://www.instagram.com/rydyt.app/',
     path: 'M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5Zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5ZM17.3 5.6a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1Z',
   },
   {
-    name: 'YouTube',
-    path: 'M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.25 5 12 5 12 5s-6.25 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.75 19 12 19 12 19s6.25 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8ZM10 15V9l5.2 3Z',
+    name: 'Facebook',
+    href: 'https://www.facebook.com/people/Rydyt/61566262581673/',
+    path: 'M13.4 22v-8.1h2.72l.41-3.16H13.4V8.72c0-.91.25-1.53 1.56-1.53h1.67V4.36c-.29-.04-1.28-.12-2.43-.12-2.4 0-4.05 1.47-4.05 4.16v2.34H7.42v3.16h2.73V22h3.25Z',
   },
   {
     name: 'X',
+    href: 'https://x.com/rydytapp',
     path: 'M17.5 3h3.1l-6.8 7.8L21.8 21h-6.3l-4.9-6.4L5 21H1.9l7.3-8.3L2.2 3h6.4l4.4 5.9Zm-1.1 16.1h1.7L6.9 4.8H5.1Z',
+  },
+  {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/rydyt',
+    path: 'M6.94 5.5a2.19 2.19 0 1 1-4.38 0 2.19 2.19 0 0 1 4.38 0ZM2.83 8.62h3.85V21H2.83V8.62Zm6.34 0h3.69v1.69h.05c.51-.97 1.77-2 3.64-2 3.9 0 4.62 2.57 4.62 5.9V21h-3.85v-6.1c0-1.46-.03-3.33-2.03-3.33-2.03 0-2.34 1.58-2.34 3.22V21H9.17V8.62Z',
   },
 ]
 
@@ -106,11 +114,19 @@ export default function Footer() {
           <p>Every ride. Every rider. Connected.</p>
           <div className="footer-socials">
             {SOCIALS.map((s) => (
-              <span key={s.name} className="footer-social" data-cursor="hover" aria-label={s.name}>
+              <a
+                key={s.name}
+                className="footer-social"
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                data-cursor="hover"
+                aria-label={s.name}
+              >
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
                   <path d={s.path} />
                 </svg>
-              </span>
+              </a>
             ))}
           </div>
         </div>

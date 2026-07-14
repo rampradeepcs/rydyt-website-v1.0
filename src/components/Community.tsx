@@ -1,38 +1,60 @@
 import { useRef, type MouseEvent } from 'react'
 import { motion } from 'motion/react'
 import { Quote } from 'lucide-react'
+import { asset } from '../lib/asset'
 import './community.css'
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
 const RIDERS = [
   {
-    name: 'Kushang M.',
-    role: 'Clan Riders · Chennai',
-    quote: 'We stopped losing people on ghat roads. That alone is worth everything.',
-    initials: 'KM',
-    hue: 358,
+    name: 'Rampradeep',
+    role: 'Gandhinagar',
+    quote:
+      "Planning group rides used to be a headache. With Rydyt's event features, it's become a breeze. Our club's attendance has soared since we started using it!",
+    img: '/assets/riders/rampradeep.png',
   },
   {
-    name: 'Aisha R.',
-    role: 'Night Riders · Bangalore',
-    quote: 'The intercom feels like the whole crew is inside your helmet.',
-    initials: 'AR',
-    hue: 210,
+    name: 'Arjun Singh',
+    role: 'Hyderabad',
+    quote:
+      "Rydyt turned my daily commute into a fun challenge. Competing on leaderboards with fellow city riders adds excitement to my routine. It's made me a more engaged rider!",
+    img: '/assets/riders/arjun_singh.jpg',
   },
   {
-    name: 'Venkat S.',
-    role: 'Solo tourer · 42 countries',
-    quote: 'SOS pinged my group before I even got my gloves off. Unreal.',
-    initials: 'VS',
-    hue: 84,
+    name: 'Vikram James',
+    role: 'Hyderabad',
+    quote:
+      "As a new rider, Rydyt's community has been incredibly welcoming. The app's features have boosted my confidence and skills. It's like having a mentor on every ride!",
+    img: '/assets/riders/vikram_james.jpg',
   },
   {
-    name: 'Uday K.',
-    role: 'Weekend breakfast runs',
-    quote: 'Ride analytics turned our Sunday loop into a friendly championship.',
-    initials: 'UK',
-    hue: 38,
+    name: 'David Dawson',
+    role: 'Hyderabad',
+    quote:
+      "Rydyt's Ride Mode is a lifesaver on long trips. Easy navigation and quick access to SOS have made my tours safer and more enjoyable. Can't imagine riding without it now!",
+    img: '/assets/riders/david_dawson.jpg',
+  },
+  {
+    name: 'Shivaji Rao',
+    role: 'Hyderabad',
+    quote:
+      "Rydyt's chat feature connected me with riders who share my passion. Now, I always have a crew ready for impromptu rides. It's more than an app - it's a riding community!",
+    img: '/assets/riders/shivaji.jpg',
+  },
+  {
+    name: 'Premson R',
+    role: 'Hyderabad',
+    quote:
+      "Rydyt's ride tracking and maintenance logs keep me on top of my bike's health. Plus, the events feature helped me discover local meetups. It's a must-have for any serious rider!",
+    img: '/assets/riders/premson_r.jpg',
+  },
+  {
+    name: 'Kartik Lanka',
+    role: 'Hyderabad',
+    quote:
+      "As a group ride organizer, Rydyt is a game-changer. Planning routes, tracking riders, and staying connected has never been easier. It's become our club's go-to app!",
+    img: '/assets/riders/kartik_l.jpg',
   },
 ]
 
@@ -69,12 +91,13 @@ function TiltCard({ r, i }: { r: (typeof RIDERS)[number]; i: number }) {
         <Quote size={18} className="community-quote-mark" />
         <p className="community-quote">{r.quote}</p>
         <div className="community-rider">
-          <span
+          <img
             className="community-avatar"
-            style={{ background: `linear-gradient(135deg, hsl(${r.hue} 70% 45%), hsl(${r.hue} 80% 24%))` }}
-          >
-            {r.initials}
-          </span>
+            src={asset(r.img)}
+            alt={`${r.name}, RYDYT rider from ${r.role}`}
+            loading="lazy"
+            draggable={false}
+          />
           <div>
             <strong>{r.name}</strong>
             <small>{r.role}</small>

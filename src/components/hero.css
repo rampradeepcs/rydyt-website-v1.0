@@ -113,19 +113,56 @@
 .hero-scene {
   position: relative;
   transform-style: preserve-3d;
-  width: min(88vw, 520px);
+  width: min(88vw, 500px);
+  aspect-ratio: 5 / 6;
 }
 
-.hero-phone {
+/* --- robotic hand + phone composition --- */
+.robo-hand-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: -6%;
+  width: 96%;
+  translate: -50% 0;
+  z-index: 3;
+  animation: hand-float 7s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.robo-hand-img {
+  position: relative;
   width: 100%;
-  filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.8));
+  z-index: 2;
+  filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.85));
   user-select: none;
+}
+
+/* phone sits in the grip, tucked behind the fingers */
+.robo-phone-wrap {
+  position: absolute;
+  left: 26%;
+  bottom: 40%;
+  width: 44%;
+  z-index: 1;
+  rotate: -8deg;
+}
+
+.robo-phone-wrap img {
+  width: 100%;
+  filter: drop-shadow(0 26px 50px rgba(0, 0, 0, 0.8));
+  user-select: none;
+}
+
+@keyframes hand-float {
+  50% {
+    translate: -50% -10px;
+  }
 }
 
 .hero-phone-glow {
   position: absolute;
   inset: 8% 12%;
-  background: radial-gradient(50% 45% at 62% 30%, rgba(232, 35, 42, 0.32), transparent 70%);
+  background: radial-gradient(50% 45% at 50% 38%, rgba(232, 35, 42, 0.32), transparent 70%);
   filter: blur(46px);
   animation: phone-glow 4.5s ease-in-out infinite;
 }

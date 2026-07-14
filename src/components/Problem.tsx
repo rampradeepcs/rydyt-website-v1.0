@@ -1,17 +1,18 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { MapPinOff, MicOff, Fuel, CloudRain, Siren } from 'lucide-react'
 import { asset } from '../lib/asset'
 import './problem.css'
 
 gsap.registerPlugin(ScrollTrigger)
 
 const PAINS = [
-  { title: 'Riders get lost', sub: 'One wrong exit and the group splits' },
-  { title: 'Comms break down', sub: 'Hand signals die past 60 km/h' },
-  { title: 'Fuel runs dry', sub: 'Nobody plans the stops' },
-  { title: 'Weather surprises', sub: 'Rain hits half the convoy' },
-  { title: 'Emergencies go unseen', sub: 'A crash at the back, noticed 20 km later' },
+  { title: 'Riders get lost', sub: 'One wrong exit and the group splits', icon: MapPinOff },
+  { title: 'Comms break down', sub: 'Hand signals die past 60 km/h', icon: MicOff },
+  { title: 'Fuel runs dry', sub: 'Nobody plans the stops', icon: Fuel },
+  { title: 'Weather surprises', sub: 'Rain hits half the convoy', icon: CloudRain },
+  { title: 'Emergencies go unseen', sub: 'A crash at the back, noticed 20 km later', icon: Siren },
 ]
 
 /* five riders start as a convoy, then scatter */
@@ -197,6 +198,9 @@ export default function Problem() {
                   <strong>{p.title}</strong>
                   <small>{p.sub}</small>
                 </div>
+                <span className="problem-pain-icon">
+                  <p.icon size={17} strokeWidth={1.7} />
+                </span>
               </li>
             ))}
           </ul>

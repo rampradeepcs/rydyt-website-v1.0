@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'motion/react'
+import { LOGO_PATHS } from './LogoMark'
 import './loader.css'
 import { asset } from '../lib/asset'
 
@@ -20,7 +21,7 @@ export default function Loader({ onDone }: { onDone: () => void }) {
     img.src = asset('/assets/hero-hand-phone.png')
 
     const tick = (now: number) => {
-      const t = Math.min((now - start) / 1800, 1)
+      const t = Math.min((now - start) / 2400, 1)
       const cap = heroLoaded ? 100 : 88
       value = Math.min(Math.round(t * 100), cap)
       setProgress(value)
@@ -44,29 +45,15 @@ export default function Loader({ onDone }: { onDone: () => void }) {
           transition={{ duration: 0.9, ease: EASE }}
         >
           <div className="loader-center">
-            <svg
-              className="loader-helmet"
-              viewBox="0 0 120 100"
-              fill="none"
-              aria-hidden
-            >
-              {/* helmet shell */}
-              <path
-                className="lh-path lh-1"
-                d="M14 62 C14 30 34 12 60 12 C86 12 106 30 106 62 L106 74 C106 80 102 84 96 84 L88 84"
-              />
-              {/* visor */}
-              <path
-                className="lh-path lh-2"
-                d="M30 52 C42 44 78 44 92 52 C92 62 84 70 60 70 C40 70 30 62 30 52 Z"
-              />
-              {/* chin bar */}
-              <path
-                className="lh-path lh-3"
-                d="M14 62 L14 72 C14 80 20 84 28 84 L52 84"
-              />
-              {/* vent line */}
-              <path className="lh-path lh-4" d="M52 24 C58 22 64 22 70 24" />
+            <svg className="loader-logo" viewBox="-6 -6 261 260" aria-hidden>
+              {LOGO_PATHS.map((d, i) => (
+                <path
+                  key={i}
+                  className={`loader-logo-path loader-logo-path-${i}`}
+                  d={d}
+                  pathLength={1}
+                />
+              ))}
             </svg>
             <div className="loader-word" aria-label="RYDYT">
               {'RYDYT'.split('').map((c, i) => (

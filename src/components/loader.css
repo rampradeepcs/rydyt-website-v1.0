@@ -15,35 +15,54 @@
   gap: 22px;
 }
 
-.loader-helmet {
+.loader-logo {
   width: 96px;
-  filter: drop-shadow(0 0 14px var(--red-glow));
+  overflow: visible;
+  animation: logo-glow 2.4s ease forwards;
 }
 
-.lh-path {
-  stroke: var(--red);
-  stroke-width: 2.5;
-  stroke-linecap: round;
-  stroke-dasharray: 320;
-  stroke-dashoffset: 320;
-  animation: lh-draw 1.4s var(--ease-out) forwards;
+.loader-logo-path {
+  fill: #eb1d23;
+  fill-opacity: 0;
+  stroke: #eb1d23;
+  stroke-width: 4;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation:
+    logo-draw 1.3s var(--ease-out) forwards,
+    logo-fill 0.65s ease 1.15s forwards;
 }
 
-.lh-2 {
-  stroke: #fff;
-  animation-delay: 0.3s;
-}
-.lh-3 {
-  animation-delay: 0.5s;
-}
-.lh-4 {
-  stroke: rgba(255, 255, 255, 0.5);
-  animation-delay: 0.7s;
+.loader-logo-path-1 {
+  animation-delay: 0.3s, 1.3s;
 }
 
-@keyframes lh-draw {
+/* outline draws itself... */
+@keyframes logo-draw {
   to {
     stroke-dashoffset: 0;
+  }
+}
+
+/* ...then the mark floods with brand red */
+@keyframes logo-fill {
+  to {
+    fill-opacity: 1;
+  }
+}
+
+/* glow blooms while drawing, settles once filled */
+@keyframes logo-glow {
+  0% {
+    filter: drop-shadow(0 0 4px rgba(235, 29, 35, 0.35));
+  }
+  55% {
+    filter: drop-shadow(0 0 22px rgba(235, 29, 35, 0.85))
+      drop-shadow(0 0 44px rgba(235, 29, 35, 0.4));
+  }
+  100% {
+    filter: drop-shadow(0 0 14px rgba(235, 29, 35, 0.55));
   }
 }
 

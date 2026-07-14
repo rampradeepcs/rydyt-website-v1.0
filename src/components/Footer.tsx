@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Compass } from 'lucide-react'
+import LogoMark from './LogoMark'
 import './footer.css'
 
 const SOCIALS = [
@@ -99,12 +100,7 @@ export default function Footer() {
       <div className="footer-inner">
         <div className="footer-brand">
           <div className="footer-logo">
-            <svg viewBox="0 0 64 64" aria-hidden>
-              <path
-                d="M18 46 L18 18 L36 18 C42 18 45 21 45 26 C45 30.5 42.5 33 38.5 33.8 L47 46 L38.5 46 L31 34.5 L25.5 34.5 L25.5 46 Z M25.5 24 L25.5 29 L35 29 C36.8 29 38 28 38 26.5 C38 25 36.8 24 35 24 Z"
-                fill="currentColor"
-              />
-            </svg>
+            <LogoMark />
             <span>RYDYT</span>
           </div>
           <p>Every ride. Every rider. Connected.</p>

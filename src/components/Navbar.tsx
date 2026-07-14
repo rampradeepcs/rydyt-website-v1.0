@@ -3,6 +3,7 @@ import { motion } from 'motion/react'
 import { Plus } from 'lucide-react'
 import { useMagnetic } from '../hooks/useMagnetic'
 import { scrollToTarget } from '../hooks/useSmoothScroll'
+import LogoMark from './LogoMark'
 import './navbar.css'
 
 const EASE = [0.16, 1, 0.3, 1] as const
@@ -50,12 +51,7 @@ export default function Navbar() {
               scrollToTarget(0)
             }}
           >
-            <svg viewBox="0 0 64 64" className="nav-logo-mark" aria-hidden>
-              <path
-                d="M18 46 L18 18 L36 18 C42 18 45 21 45 26 C45 30.5 42.5 33 38.5 33.8 L47 46 L38.5 46 L31 34.5 L25.5 34.5 L25.5 46 Z M25.5 24 L25.5 29 L35 29 C36.8 29 38 28 38 26.5 C38 25 36.8 24 35 24 Z"
-                fill="currentColor"
-              />
-            </svg>
+            <LogoMark className="nav-logo-mark" />
             <span className="nav-brand">RYDYT</span>
           </a>
           <button

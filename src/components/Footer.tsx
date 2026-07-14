@@ -37,11 +37,11 @@ const COLS = [
   },
   {
     title: 'Community',
-    links: ['Clans', 'Events', 'Routes', 'Stories'],
+    links: ['Clans', 'Events', 'Routes', { label: 'Stories', href: 'blog.html' }],
   },
   {
     title: 'Company',
-    links: ['About', 'Careers', 'Press', 'Contact'],
+    links: ['About', { label: 'Blog', href: 'blog.html' }, 'Careers', 'Contact'],
   },
 ]
 
@@ -134,11 +134,17 @@ export default function Footer() {
         {COLS.map((col) => (
           <nav className="footer-col" key={col.title} aria-label={col.title}>
             <h3>{col.title}</h3>
-            {col.links.map((l) => (
-              <a key={l} href="#top" data-cursor="hover" onClick={(e) => e.preventDefault()}>
-                {l}
-              </a>
-            ))}
+            {col.links.map((l) =>
+              typeof l === 'string' ? (
+                <a key={l} href="#top" data-cursor="hover" onClick={(e) => e.preventDefault()}>
+                  {l}
+                </a>
+              ) : (
+                <a key={l.label} href={l.href} data-cursor="hover">
+                  {l.label}
+                </a>
+              ),
+            )}
           </nav>
         ))}
 

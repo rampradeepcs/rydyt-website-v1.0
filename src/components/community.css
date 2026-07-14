@@ -1,0 +1,113 @@
+.community {
+  background: var(--bg);
+}
+
+.community-head {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto clamp(44px, 7vh, 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+  max-width: 1240px;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.community-card-wrap {
+  perspective: 900px;
+}
+
+.community-card {
+  height: 100%;
+  padding: 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: transform 0.45s var(--ease-out), border-color 0.4s, box-shadow 0.5s;
+  transform-style: preserve-3d;
+  animation: card-drift 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes card-drift {
+  50% {
+    margin-top: -8px;
+  }
+}
+
+.community-card:hover {
+  border-color: rgba(232, 35, 42, 0.4);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5), 0 0 40px rgba(232, 35, 42, 0.08);
+}
+
+.community-quote-mark {
+  color: var(--red);
+}
+
+.community-quote {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--text);
+  flex: 1;
+}
+
+.community-rider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.community-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #fff;
+  flex: none;
+}
+
+.community-rider strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.community-rider small {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.community-wave {
+  margin-left: auto;
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 16px;
+}
+
+.community-wave i {
+  width: 3px;
+  height: 6px;
+  border-radius: 2px;
+  background: var(--red);
+  animation: wave-bounce 1s ease-in-out infinite;
+}
+
+@keyframes wave-bounce {
+  50% {
+    height: 15px;
+  }
+}

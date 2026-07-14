@@ -1,0 +1,151 @@
+.features {
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.features-sticky {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.features-headline {
+  position: absolute;
+  top: clamp(80px, 11vh, 120px);
+  left: clamp(20px, 6vw, 96px);
+  z-index: 3;
+}
+
+.features-headline h2 {
+  margin-top: 16px;
+}
+
+.features-hint {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--faint);
+  animation: hint-slide 2.2s ease-in-out infinite;
+}
+
+@keyframes hint-slide {
+  50% {
+    transform: translateX(10px);
+    color: var(--red);
+  }
+}
+
+.features-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, 8vw, 140px);
+  padding: 0 clamp(20px, 8vw, 120px);
+  padding-top: 12vh;
+  will-change: transform;
+  width: max-content;
+}
+
+.feature-panel {
+  display: flex;
+  align-items: center;
+  gap: clamp(28px, 4vw, 72px);
+  width: max-content;
+  flex: none;
+}
+
+.feature-copy {
+  width: clamp(260px, 30vw, 400px);
+}
+
+.feature-num {
+  font-family: var(--font-display);
+  font-size: 13px;
+  color: var(--faint);
+  letter-spacing: 0.3em;
+}
+
+.feature-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0;
+  color: var(--red);
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.feature-copy h3 {
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+  line-height: 1.08;
+  margin-bottom: 16px;
+}
+
+.feature-copy p {
+  color: var(--muted);
+  font-size: 14.5px;
+  line-height: 1.7;
+  max-width: 340px;
+}
+
+.feature-phone {
+  position: relative;
+  width: clamp(230px, 24vw, 320px);
+  flex: none;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.feature-phone:hover {
+  transform: scale(1.03) rotate(-1deg);
+}
+
+.feature-phone img,
+.feature-phone video {
+  width: 100%;
+  border-radius: 38px;
+  filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.8));
+}
+
+.feature-phone video {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0a0a0c;
+}
+
+.feature-phone-glow {
+  position: absolute;
+  inset: -8%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(232, 35, 42, 0.18), transparent 70%);
+  filter: blur(40px);
+  pointer-events: none;
+}
+
+@media (max-width: 720px) {
+  .feature-panel {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 78vw;
+  }
+
+  .feature-copy {
+    width: 100%;
+  }
+
+  .feature-copy h3 {
+    font-size: 1.5rem;
+  }
+
+  .feature-phone {
+    width: min(58vw, 240px);
+    align-self: center;
+  }
+
+  .features-track {
+    padding-top: 20vh;
+    gap: 12vw;
+  }
+}

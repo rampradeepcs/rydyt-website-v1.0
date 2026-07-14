@@ -1,0 +1,148 @@
+.footer {
+  position: relative;
+  background: #060507;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0 clamp(20px, 6vw, 96px);
+}
+
+.footer-route {
+  width: 100%;
+  height: 90px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.footer-route-line {
+  filter: drop-shadow(0 0 8px rgba(232, 35, 42, 0.6));
+}
+
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding-bottom: 48px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+@media (min-width: 880px) {
+  .footer-inner {
+    grid-template-columns: 1.4fr repeat(3, 1fr) 0.9fr;
+  }
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--red);
+}
+
+.footer-logo svg {
+  width: 38px;
+  height: 38px;
+  filter: drop-shadow(0 0 10px var(--red-glow));
+}
+
+.footer-logo span {
+  font-family: var(--font-display);
+  letter-spacing: 0.34em;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.footer-brand p {
+  margin: 16px 0 22px;
+  color: var(--muted);
+  font-size: 13.5px;
+  max-width: 240px;
+  line-height: 1.6;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-social {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition: all 0.4s var(--ease-out);
+}
+
+.footer-social:hover {
+  color: #fff;
+  border-color: var(--red);
+  box-shadow: 0 0 22px rgba(232, 35, 42, 0.35);
+  transform: translateY(-3px);
+}
+
+.footer-col h3 {
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--faint);
+  margin-bottom: 18px;
+  font-weight: 400;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 13.5px;
+  color: var(--muted);
+  padding: 6px 0;
+  transition: color 0.3s, transform 0.4s var(--ease-out);
+}
+
+.footer-col a:hover {
+  color: var(--text);
+  transform: translateX(6px);
+}
+
+.footer-compass {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  justify-self: center;
+}
+
+.footer-compass svg {
+  width: 84px;
+}
+
+.footer-needle {
+  transform-origin: 40px 40px;
+  transform: rotate(var(--needle, 0deg));
+  transition: transform 0.25s ease-out;
+}
+
+.footer-compass span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 10px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 22px 0 26px;
+  font-size: 11.5px;
+  color: var(--faint);
+  letter-spacing: 0.08em;
+  max-width: 1240px;
+  margin: 0 auto;
+}

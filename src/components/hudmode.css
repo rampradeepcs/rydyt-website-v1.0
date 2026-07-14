@@ -1,0 +1,75 @@
+.hud {
+  background: linear-gradient(180deg, var(--bg) 0%, #08070a 55%, var(--bg) 100%);
+  text-align: center;
+}
+
+.hud-head {
+  max-width: 640px;
+  margin: 0 auto clamp(40px, 7vh, 80px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.hud-stage {
+  perspective: 1100px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: clamp(48px, 8vh, 96px);
+}
+
+.hud-device {
+  position: relative;
+  width: min(92vw, 860px);
+  transform-style: preserve-3d;
+}
+
+.hud-device video {
+  width: 100%;
+  border-radius: clamp(20px, 3vw, 40px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #000;
+  filter: drop-shadow(0 60px 100px rgba(0, 0, 0, 0.85));
+}
+
+.hud-device-glow {
+  position: absolute;
+  inset: -6% -10%;
+  background: radial-gradient(55% 60% at 50% 55%, rgba(232, 35, 42, 0.16), transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}
+
+.hud-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.hud-card {
+  padding: 24px 22px;
+  color: var(--red);
+  transition: transform 0.5s var(--ease-out), border-color 0.4s;
+}
+
+.hud-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(232, 35, 42, 0.4);
+}
+
+.hud-card h3 {
+  color: var(--text);
+  font-size: 1.05rem;
+  font-weight: 400;
+  margin: 14px 0 8px;
+}
+
+.hud-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}

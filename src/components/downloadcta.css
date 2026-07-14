@@ -1,0 +1,110 @@
+.cta {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(96px, 14vh, 180px) clamp(20px, 6vw, 96px) 0;
+  background: linear-gradient(180deg, var(--bg) 0%, #0c0508 100%);
+}
+
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cta-glow {
+  position: absolute;
+  bottom: -30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  height: 70vh;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(232, 35, 42, 0.16), transparent 70%);
+  filter: blur(60px);
+}
+
+.cta-inner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: end;
+  max-width: 1240px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+@media (min-width: 880px) {
+  .cta-inner {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+.cta-copy {
+  padding-bottom: clamp(60px, 10vh, 140px);
+}
+
+.cta-title {
+  font-size: clamp(2.6rem, 6.5vw, 5.4rem);
+  line-height: 1.03;
+  letter-spacing: -0.035em;
+  margin: 22px 0 20px;
+}
+
+.cta-title em {
+  font-style: normal;
+  color: var(--red);
+  text-shadow: 0 0 50px var(--red-glow);
+}
+
+.cta-copy .lead {
+  max-width: 440px;
+}
+
+.cta-actions {
+  margin-top: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.cta-stores {
+  display: flex;
+  gap: 12px;
+}
+
+.cta-store {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 20px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 400;
+  transition: border-color 0.4s, transform 0.4s var(--ease-out);
+}
+
+.cta-store:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+.cta-phone {
+  position: relative;
+  justify-self: center;
+  width: min(74vw, 380px);
+  margin-bottom: -6px;
+}
+
+.cta-phone img {
+  width: 100%;
+  filter: drop-shadow(0 30px 70px rgba(0, 0, 0, 0.8));
+}
+
+.cta-phone-glow {
+  position: absolute;
+  inset: 0 -14%;
+  background: radial-gradient(50% 45% at 50% 40%, rgba(232, 35, 42, 0.3), transparent 70%);
+  filter: blur(50px);
+  pointer-events: none;
+}

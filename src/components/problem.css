@@ -1,0 +1,98 @@
+.problem {
+  position: relative;
+  background: linear-gradient(180deg, var(--bg) 0%, #07070a 100%);
+}
+
+.problem-sticky {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(24px, 4vh, 48px);
+  padding: 100px clamp(20px, 6vw, 96px) 60px;
+}
+
+.problem-title {
+  margin-top: 18px;
+}
+
+.problem-title em {
+  font-style: normal;
+  color: var(--red);
+}
+
+.problem-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(24px, 4vw, 64px);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .problem-body {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+}
+
+.problem-map {
+  position: relative;
+  padding: 12px;
+  overflow: hidden;
+}
+
+.problem-map svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.problem-map-tag {
+  position: absolute;
+  bottom: 14px;
+  left: 18px;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+
+.problem-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.problem-pain {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.problem-pain-x {
+  color: var(--red);
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+.problem-pain strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-weight: 400;
+}
+
+.problem-pain small {
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+.problem-statement {
+  max-width: 620px;
+  opacity: 0;
+  transform: translateY(20px);
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  color: var(--text);
+}

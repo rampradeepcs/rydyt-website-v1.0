@@ -40,10 +40,34 @@
   overflow: hidden;
 }
 
+/* mock street-map backdrop */
+.problem-map-bg {
+  position: absolute;
+  inset: 12px;
+  width: calc(100% - 24px);
+  height: calc(100% - 24px);
+  object-fit: fill; /* overlay svg shares the exact same aspect ratio */
+  border-radius: 14px;
+  opacity: 0.85;
+  user-select: none;
+}
+
+.problem-map-shade {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(90% 90% at 50% 45%, rgba(5, 5, 5, 0.1) 0%, rgba(5, 5, 5, 0.72) 100%);
+}
+
 .problem-map svg {
+  position: relative;
   width: 100%;
   height: auto;
   display: block;
+}
+
+/* map is taller than the old panel — cap it so the pinned layout still fits */
+.problem-map {
+  max-width: min(100%, 62vh * 1.222);
 }
 
 .problem-map-tag {

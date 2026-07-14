@@ -113,14 +113,17 @@ export default function Features() {
               <div className="feature-phone" data-cursor="hover">
                 <div className="feature-phone-glow" />
                 {p.media.type === 'video' ? (
-                  <video
-                    src={p.media.src}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    aria-label={p.media.alt}
-                  />
+                  <div className="feature-phone-frame">
+                    <video
+                      src={p.media.src}
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                      aria-label={p.media.alt}
+                    />
+                    <span className="feature-phone-island" aria-hidden />
+                  </div>
                 ) : (
                   <img src={p.media.src} alt={p.media.alt} loading="lazy" draggable={false} />
                 )}

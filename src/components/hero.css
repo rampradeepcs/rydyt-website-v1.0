@@ -1,11 +1,20 @@
 .hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   overflow: hidden;
   padding: 110px clamp(20px, 6vw, 96px) 80px;
+}
+
+@media (min-width: 900px) {
+  .hero {
+    height: 100vh;
+    height: 100dvh;
+    padding-bottom: 0;
+  }
 }
 
 /* --- background layers --- */
@@ -76,6 +85,14 @@
 @media (min-width: 900px) {
   .hero-inner {
     grid-template-columns: 1.05fr 0.95fr;
+    align-items: stretch;
+    height: 100%;
+    flex: 1;
+  }
+
+  .hero-copy {
+    align-self: center;
+    padding-bottom: 6vh;
   }
 }
 
@@ -115,6 +132,24 @@
   transform-style: preserve-3d;
   width: min(88vw, 500px);
   aspect-ratio: 5 / 6;
+}
+
+/* desktop: the scene is driven by the hero's height and rests on its bottom edge */
+@media (min-width: 900px) {
+  .hero-scene-wrap {
+    align-items: flex-end;
+    height: 100%;
+  }
+
+  .hero-scene {
+    width: auto;
+    height: min(88%, 820px);
+    max-width: 44vw;
+  }
+
+  .robo-hand-wrap {
+    bottom: -3%;
+  }
 }
 
 /* --- robotic hand + phone composition --- */

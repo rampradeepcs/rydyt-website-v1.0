@@ -172,14 +172,14 @@
   user-select: none;
 }
 
-/* phone sits in the grip, tucked behind the fingers */
+/* phone sits in the grip, bottom third tucked behind the fingers */
 .robo-phone-wrap {
   position: absolute;
-  left: 26%;
-  bottom: 40%;
+  left: 24%;
+  bottom: 31%;
   width: 44%;
   z-index: 1;
-  rotate: -8deg;
+  rotate: -7deg;
 }
 
 .robo-phone-wrap img {

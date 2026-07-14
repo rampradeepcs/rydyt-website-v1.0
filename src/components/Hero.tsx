@@ -145,24 +145,30 @@ export default function Hero() {
           <div className="hero-scene" ref={sceneRef}>
             <div className="hero-phone-glow" />
             <div className="robo-hand-wrap">
+              {/* phone drops into the grip from above */}
               <div className="robo-phone-wrap">
                 <motion.img
                   src={asset('/assets/dashboard-phone.png')}
                   alt="RYDYT dashboard on a phone"
                   draggable={false}
-                  initial={{ opacity: 0, y: 60, scale: 1.06 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  transition={{ delay: 1.5, duration: 1.8, ease: EASE }}
+                  initial={{ opacity: 0, y: -140, rotate: 6, scale: 1.04 }}
+                  animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
+                  transition={{ delay: 1.9, duration: 1.1, ease: EASE }}
                 />
               </div>
+              {/* hand rises, then squeezes as it catches the phone */}
               <motion.img
                 className="robo-hand-img"
                 src={asset('/assets/robo-hand.png')}
                 alt="Silver robotic hand holding the phone"
                 draggable={false}
                 initial={{ opacity: 0, y: 120 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.05, duration: 1.6, ease: EASE }}
+                animate={{ opacity: 1, y: 0, scale: [1, 1, 0.975, 1.008, 1] }}
+                transition={{
+                  opacity: { delay: 1.05, duration: 1.6, ease: EASE },
+                  y: { delay: 1.05, duration: 1.6, ease: EASE },
+                  scale: { delay: 2.75, duration: 0.55, times: [0, 0.1, 0.45, 0.75, 1], ease: 'easeOut' },
+                }}
               />
             </div>
             {CHIPS.map((c) => (

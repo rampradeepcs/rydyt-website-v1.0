@@ -133,6 +133,26 @@
   color: var(--faint);
 }
 
+.footer-legal {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.footer-legal a {
+  color: var(--muted);
+  transition: color 0.3s;
+}
+
+.footer-legal a:hover {
+  color: var(--text);
+}
+
+.footer-legal i {
+  font-style: normal;
+  color: var(--red);
+}
+
 .footer-bottom {
   display: flex;
   flex-wrap: wrap;

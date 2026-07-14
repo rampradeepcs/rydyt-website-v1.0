@@ -155,7 +155,11 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <span>© 2026 RYDYT Labs. All rides reserved.</span>
-        <span>Privacy · Terms · Safety</span>
+        <span className="footer-legal">
+          <a href="privacy.html" data-cursor="hover">Privacy Policy</a>
+          <i>·</i>
+          <a href="terms.html" data-cursor="hover">Terms &amp; Conditions</a>
+        </span>
       </div>
     </footer>
   )

@@ -53,25 +53,6 @@
   mask-image: radial-gradient(70% 60% at 60% 45%, #000 0%, transparent 100%);
 }
 
-.hero-horizon {
-  position: absolute;
-  left: -10%;
-  right: -10%;
-  top: 58%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, var(--red) 30%, #ff6b70 50%, var(--red) 70%, transparent);
-  filter: blur(1px);
-  box-shadow: 0 0 34px 4px var(--red-glow);
-  opacity: 0.55;
-  animation: horizon-pulse 5s ease-in-out infinite;
-}
-
-@keyframes horizon-pulse {
-  50% {
-    opacity: 0.9;
-  }
-}
-
 .hero-beam {
   position: absolute;
   width: 60vw;

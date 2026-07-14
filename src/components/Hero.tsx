@@ -72,7 +72,6 @@ export default function Hero() {
         />
         <div className="hero-bg-shade" />
         <div className="hero-grid" />
-        <div className="hero-horizon" />
         <div className="hero-beam hero-beam-1" />
         <div className="hero-beam hero-beam-2" />
         <Particles density={80} />

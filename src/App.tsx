@@ -12,6 +12,7 @@ import Features from './components/Features'
 import HudMode from './components/HudMode'
 import Stats from './components/Stats'
 import Community from './components/Community'
+import Blog from './components/Blog'
 import DownloadCTA from './components/DownloadCTA'
 import Footer from './components/Footer'
 import BetaModal from './components/BetaModal'
@@ -38,6 +39,7 @@ export default function App() {
         <HudMode />
         <Stats />
         <Community />
+        <Blog />
         <DownloadCTA />
         <Footer />
       </main>

@@ -180,9 +180,9 @@ export default function Problem() {
                 [330, 540],
               ].map(([x, y], i) => (
                 <g key={i} className="problem-lost" transform={`translate(${x} ${y})`}>
-                  <rect x="-70" y="-19" width="140" height="38" rx="19" fill="rgba(10,10,11,0.9)" stroke="rgba(232,35,42,0.5)" />
+                  <rect x="-98" y="-19" width="196" height="38" rx="19" fill="rgba(10,10,11,0.9)" stroke="rgba(232,35,42,0.5)" />
                   <text x="0" y="5" textAnchor="middle" fill="#e8232a" fontSize="14" letterSpacing="1.5">
-                    SIGNAL LOST
+                    RIDER DISCONNECTED
                   </text>
                 </g>
               ))}

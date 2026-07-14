@@ -1,0 +1,250 @@
+/* ---------- shared blog bits (uses legal.css as the base) ---------- */
+
+.blog-wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: clamp(48px, 8vh, 90px) clamp(20px, 5vw, 40px) 80px;
+}
+
+.blog-hero {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto clamp(40px, 7vh, 70px);
+}
+
+.blog-pill {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  padding: 9px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(235, 29, 35, 0.55);
+  background: radial-gradient(120% 160% at 50% 0%, rgba(235, 29, 35, 0.22), transparent 70%);
+  color: #fff;
+}
+
+.blog-hero h1 {
+  margin: 22px 0 14px;
+}
+
+.blog-hero p {
+  font-size: 16px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 26px;
+}
+
+.blog-card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  overflow: hidden;
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.015));
+  border: 1px solid var(--line);
+  color: var(--text);
+  text-decoration: none;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s, box-shadow 0.45s;
+}
+
+.blog-card:hover {
+  transform: translateY(-7px);
+  border-color: rgba(235, 29, 35, 0.5);
+  box-shadow: 0 26px 60px rgba(0, 0, 0, 0.5), 0 0 40px rgba(235, 29, 35, 0.08);
+  text-decoration: none;
+}
+
+.blog-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9.5;
+  overflow: hidden;
+}
+
+.blog-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blog-card:hover .blog-thumb img {
+  transform: scale(1.05);
+}
+
+.blog-thumb-fallback {
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(80% 90% at 70% 20%, rgba(235, 29, 35, 0.25), transparent 60%),
+    linear-gradient(160deg, #1a1a1e, #0a0a0c);
+}
+
+.blog-cat {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: #e21d24;
+  border-radius: 999px;
+  padding: 7px 14px;
+  line-height: 1.2;
+  max-width: 82%;
+}
+
+.blog-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px 22px 20px;
+  flex: 1;
+}
+
+.blog-card-body h3 {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1.15rem;
+  line-height: 1.35;
+  color: #fff;
+  margin: 0;
+}
+
+.blog-card-body p {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--muted);
+  margin: 0;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.blog-card-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12.5px;
+  color: var(--muted);
+  border-top: 1px solid var(--line);
+  padding-top: 14px;
+}
+
+.blog-readmore {
+  color: var(--red);
+  font-weight: 500;
+}
+
+/* ---------- post detail ---------- */
+
+.blog-post .blog-cat {
+  position: static;
+  display: inline-block;
+  margin-bottom: 16px;
+}
+
+.post-backlink {
+  display: inline-block;
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 26px;
+}
+
+.post-meta {
+  color: var(--muted);
+  font-size: 13.5px;
+  margin: -8px 0 26px;
+}
+
+.post-cover {
+  width: 100%;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  margin-bottom: 34px;
+}
+
+.post-body p {
+  font-size: 15.5px;
+  line-height: 1.85;
+}
+
+.post-body h2,
+.post-body h3,
+.post-body h4 {
+  border: none;
+  padding-top: 12px;
+  margin: 34px 0 12px;
+}
+
+.post-body img {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  margin: 22px 0;
+}
+
+.post-body ul,
+.post-body ol {
+  margin: 14px 0 20px 4px;
+}
+
+.post-body ul li,
+.post-body ol li {
+  padding: 4px 0 4px 24px;
+  background: none;
+  border: none;
+  border-radius: 0;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.post-body ul li::before {
+  left: 2px;
+  top: 14px;
+  width: 7px;
+  height: 7px;
+}
+
+.post-body ol {
+  counter-reset: item;
+  list-style: none;
+}
+
+.post-body ol li::before {
+  content: none;
+}
+
+.post-body ol li {
+  counter-increment: item;
+  position: relative;
+}
+
+.post-body ol li::marker {
+  color: var(--red);
+}
+
+.post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 22px 0;
+  font-size: 14px;
+}
+
+.post-body td,
+.post-body th {
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  color: var(--muted);
+}
+
+.post-body th {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+}

@@ -190,7 +190,7 @@
   animation-duration: 1.1s;
 }
 .journey-arrival .journey-lane {
-  animation-duration: 2.6s; /* rolling to a stop */
+  animation-play-state: paused; /* bike has stopped at the destination */
 }
 
 /* checkered strip painted on the road plane, revealed at the destination */

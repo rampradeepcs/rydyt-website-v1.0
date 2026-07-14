@@ -153,10 +153,10 @@
 .iphone-wrap {
   position: absolute;
   left: 50%;
-  bottom: 2%;
-  height: 94%;
+  top: 50%;
+  height: 76%;
   aspect-ratio: 1262 / 2648;
-  translate: -50% 0;
+  translate: -50% -50%;
   z-index: 2;
   transform: rotateY(-16deg) rotateX(5deg) rotateZ(-3deg);
   transform-style: preserve-3d;
@@ -193,7 +193,7 @@
 
 @keyframes iphone-hover {
   50% {
-    translate: -50% -16px;
+    translate: -50% calc(-50% - 16px);
   }
 }
 

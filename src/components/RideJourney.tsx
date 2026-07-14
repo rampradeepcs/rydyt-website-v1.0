@@ -12,6 +12,7 @@ import {
   Navigation,
 } from 'lucide-react'
 import BikeFront from './BikeFront'
+import Particles from './Particles'
 import './ridejourney.css'
 import { asset } from '../lib/asset'
 
@@ -146,6 +147,7 @@ export default function RideJourney() {
         <div className="journey-sky" aria-hidden>
           <div className="journey-sun" />
           <div className="journey-stars" />
+          <Particles density={30} />
           <div className="journey-mountains journey-mountains-far" />
           <div className="journey-mountains journey-mountains-near" />
         </div>
@@ -154,9 +156,38 @@ export default function RideJourney() {
         <div className="journey-road-wrap" aria-hidden>
           <div className="journey-road">
             <div className="journey-lane" />
+            <div className="journey-finish-line" />
           </div>
           <div className="journey-road-glow" />
         </div>
+
+        {/* destination reached — checkered flag + confetti */}
+        <div className="journey-finish" aria-hidden>
+          <svg className="journey-flag" viewBox="0 0 96 132">
+            <defs>
+              <pattern id="jf-checker" width="16" height="16" patternUnits="userSpaceOnUse">
+                <rect width="8" height="8" fill="#ececef" />
+                <rect x="8" y="8" width="8" height="8" fill="#ececef" />
+                <rect x="8" width="8" height="8" fill="#101014" />
+                <rect y="8" width="8" height="8" fill="#101014" />
+              </pattern>
+            </defs>
+            <rect x="6" y="4" width="4" height="126" rx="2" fill="#b9b9bf" />
+            <circle cx="8" cy="5" r="4.5" fill="#e8232a" />
+            <g className="journey-flag-cloth">
+              <path d="M10 10 L86 14 Q90 30 86 46 L10 50 Z" fill="url(#jf-checker)" stroke="rgba(0,0,0,0.4)" strokeWidth="1" />
+            </g>
+          </svg>
+          <span className="journey-finish-tag">DESTINATION REACHED</span>
+          <div className="journey-confetti">
+            {Array.from({ length: 12 }).map((_, i) => (
+              <i key={i} />
+            ))}
+          </div>
+        </div>
+
+        {/* cinematic vignette */}
+        <div className="journey-vignette" aria-hidden />
 
         {/* rain + night vignette overlays */}
         <div className="journey-rain-overlay" aria-hidden />

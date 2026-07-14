@@ -147,51 +147,63 @@
     max-width: 44vw;
   }
 
-  .robo-hand-wrap {
-    bottom: -3%;
-  }
 }
 
-/* --- robotic hand + phone composition --- */
-.robo-hand-wrap {
+/* --- floating 3D iPhone --- */
+.iphone-wrap {
   position: absolute;
   left: 50%;
-  bottom: -6%;
-  width: 96%;
+  bottom: 2%;
+  height: 94%;
+  aspect-ratio: 1262 / 2648;
   translate: -50% 0;
-  z-index: 3;
-  animation: hand-float 7s ease-in-out infinite;
+  z-index: 2;
+  transform: rotateY(-16deg) rotateX(5deg) rotateZ(-3deg);
+  transform-style: preserve-3d;
+  animation: iphone-hover 6.5s ease-in-out infinite;
   pointer-events: none;
 }
 
-.robo-hand-img {
-  position: relative;
+.iphone-wrap img {
   width: 100%;
-  z-index: 2;
-  filter: drop-shadow(0 40px 80px rgba(0, 0, 0, 0.85));
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(-30px 46px 70px rgba(0, 0, 0, 0.85));
   user-select: none;
 }
 
-/* phone in front — the hand grips it from behind, fingertips and thumb
-   emerging around its edges */
-.robo-phone-wrap {
+/* moving glass sheen across the screen */
+.iphone-sheen {
   position: absolute;
-  left: 30%;
-  bottom: 25%;
-  width: 46%;
-  z-index: 3;
-  rotate: -7deg;
+  inset: 2% 5%;
+  border-radius: 12% / 6%;
+  overflow: hidden;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.07) 42%,
+    rgba(255, 255, 255, 0.13) 48%,
+    rgba(255, 255, 255, 0.07) 54%,
+    transparent 66%
+  );
+  background-size: 300% 100%;
+  animation: iphone-sheen 7s ease-in-out infinite;
+  mix-blend-mode: screen;
 }
 
-.robo-phone-wrap img {
-  width: 100%;
-  filter: drop-shadow(0 26px 50px rgba(0, 0, 0, 0.8));
-  user-select: none;
-}
-
-@keyframes hand-float {
+@keyframes iphone-hover {
   50% {
-    translate: -50% -10px;
+    translate: -50% -16px;
+  }
+}
+
+@keyframes iphone-sheen {
+  0%,
+  100% {
+    background-position: 120% 0;
+  }
+  50% {
+    background-position: -20% 0;
   }
 }
 

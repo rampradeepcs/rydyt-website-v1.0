@@ -18,7 +18,7 @@ export default function Loader({ onDone }: { onDone: () => void }) {
     let heroLoaded = false
     img.onload = () => (heroLoaded = true)
     img.onerror = () => (heroLoaded = true)
-    img.src = asset('/assets/hero-hand-phone.png')
+    img.src = asset('/assets/dashboard-phone.png')
 
     const tick = (now: number) => {
       const t = Math.min((now - start) / 2400, 1)

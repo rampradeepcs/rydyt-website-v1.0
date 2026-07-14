@@ -144,32 +144,16 @@ export default function Hero() {
         >
           <div className="hero-scene" ref={sceneRef}>
             <div className="hero-phone-glow" />
-            <div className="robo-hand-wrap">
-              {/* phone drops into the grip from above */}
-              <div className="robo-phone-wrap">
-                <motion.img
-                  src={asset('/assets/dashboard-phone.png')}
-                  alt="RYDYT dashboard on a phone"
-                  draggable={false}
-                  initial={{ opacity: 0, y: -140, rotate: 6, scale: 1.04 }}
-                  animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
-                  transition={{ delay: 1.9, duration: 1.1, ease: EASE }}
-                />
-              </div>
-              {/* hand rises, then squeezes as it catches the phone */}
+            <div className="iphone-wrap">
               <motion.img
-                className="robo-hand-img"
-                src={asset('/assets/robo-hand.png')}
-                alt="Silver robotic hand holding the phone"
+                src={asset('/assets/dashboard-phone.png')}
+                alt="RYDYT dashboard on an iPhone"
                 draggable={false}
-                initial={{ opacity: 0, y: 120 }}
-                animate={{ opacity: 1, y: 0, scale: [1, 1, 0.975, 1.008, 1] }}
-                transition={{
-                  opacity: { delay: 1.05, duration: 1.6, ease: EASE },
-                  y: { delay: 1.05, duration: 1.6, ease: EASE },
-                  scale: { delay: 2.75, duration: 0.55, times: [0, 0.1, 0.45, 0.75, 1], ease: 'easeOut' },
-                }}
+                initial={{ opacity: 0, y: 110, scale: 1.06 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ delay: 1.1, duration: 1.7, ease: EASE }}
               />
+              <div className="iphone-sheen" aria-hidden />
             </div>
             {CHIPS.map((c) => (
               <motion.div

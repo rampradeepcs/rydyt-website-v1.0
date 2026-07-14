@@ -172,13 +172,14 @@
   user-select: none;
 }
 
-/* phone sits in the grip, bottom third tucked behind the fingers */
+/* phone in front — the hand grips it from behind, fingertips and thumb
+   emerging around its edges */
 .robo-phone-wrap {
   position: absolute;
-  left: 24%;
-  bottom: 31%;
-  width: 44%;
-  z-index: 1;
+  left: 30%;
+  bottom: 25%;
+  width: 46%;
+  z-index: 3;
   rotate: -7deg;
 }
 

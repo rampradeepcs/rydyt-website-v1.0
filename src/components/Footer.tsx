@@ -1,6 +1,4 @@
 import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Compass } from 'lucide-react'
 import LogoMark from './LogoMark'
 import './footer.css'
@@ -28,7 +26,20 @@ const SOCIALS = [
   },
 ]
 
-gsap.registerPlugin(ScrollTrigger)
+/* night-highway visual: taillights heading out, headlights coming home.
+   [lane top %, duration s, delay s, scale] */
+const TAILLIGHTS: Array<[number, number, number, number]> = [
+  [58, 9, 0, 1],
+  [70, 7, -3, 0.8],
+  [64, 11, -6, 1.15],
+  [76, 8, -1.5, 0.7],
+  [52, 13, -9, 0.9],
+]
+const HEADLIGHTS: Array<[number, number, number, number]> = [
+  [84, 10, -2, 0.75],
+  [90, 14, -7, 0.55],
+  [80, 12, -11, 0.65],
+]
 
 const COLS = [
   {
@@ -50,24 +61,6 @@ export default function Footer() {
   const compassRef = useRef<SVGSVGElement>(null)
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const route = document.querySelector('.footer-route path.footer-route-line') as SVGPathElement | null
-      if (route) {
-        const len = route.getTotalLength()
-        gsap.set(route, { strokeDasharray: len, strokeDashoffset: len })
-        gsap.to(route, {
-          strokeDashoffset: 0,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: rootRef.current,
-            start: 'top 90%',
-            end: 'bottom bottom',
-            scrub: 0.5,
-          },
-        })
-      }
-    }, rootRef)
-
     /* compass needle follows the cursor */
     const compass = compassRef.current
     const move = (e: MouseEvent) => {
@@ -81,29 +74,29 @@ export default function Footer() {
     }
     window.addEventListener('mousemove', move, { passive: true })
     return () => {
-      ctx.revert()
       window.removeEventListener('mousemove', move)
     }
   }, [])
 
   return (
     <footer className="footer" ref={rootRef}>
-      <svg className="footer-route" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden>
-        <path
-          d="M0 80 C 180 40 300 100 460 70 C 620 40 700 95 880 65 C 1040 40 1150 90 1440 50"
-          fill="none"
-          stroke="rgba(255,255,255,0.08)"
-          strokeWidth="2"
-          strokeDasharray="5 8"
-        />
-        <path
-          className="footer-route-line"
-          d="M0 80 C 180 40 300 100 460 70 C 620 40 700 95 880 65 C 1040 40 1150 90 1440 50"
-          fill="none"
-          stroke="#e8232a"
-          strokeWidth="2"
-        />
-      </svg>
+      <div className="footer-highway" aria-hidden>
+        <div className="footer-highway-glow" />
+        {TAILLIGHTS.map(([y, t, d, s], i) => (
+          <i
+            key={`t${i}`}
+            className="footer-taillight"
+            style={{ '--y': `${y}%`, '--t': `${t}s`, '--d': `${d}s`, '--s': s } as React.CSSProperties}
+          />
+        ))}
+        {HEADLIGHTS.map(([y, t, d, s], i) => (
+          <i
+            key={`h${i}`}
+            className="footer-headlight"
+            style={{ '--y': `${y}%`, '--t': `${t}s`, '--d': `${d}s`, '--s': s } as React.CSSProperties}
+          />
+        ))}
+      </div>
 
       <div className="footer-inner">
         <div className="footer-brand">

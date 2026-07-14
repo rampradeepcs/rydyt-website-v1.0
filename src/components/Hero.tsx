@@ -70,6 +70,18 @@ export default function Hero() {
   return (
     <section className="hero" id="top" ref={rootRef}>
       <div className="hero-bg">
+        <motion.video
+          className="hero-road-video"
+          src={asset('/assets/hero-road.mp4')}
+          autoPlay
+          muted
+          loop
+          playsInline
+          initial={{ opacity: 0, scale: 1.06 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 2, ease: EASE, delay: 0.3 }}
+        />
+        <div className="hero-bg-shade" />
         <div className="hero-grid" />
         <div className="hero-horizon" />
         <div className="hero-beam hero-beam-1" />

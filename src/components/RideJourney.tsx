@@ -113,7 +113,7 @@ export default function RideJourney() {
       ScrollTrigger.create({
         trigger: rootRef.current,
         start: 'top top',
-        end: '+=600%',
+        end: '+=780%',
         pin: '.journey-sticky',
         scrub: true,
         onUpdate: (self) => {
@@ -159,7 +159,7 @@ export default function RideJourney() {
         </div>
 
         {/* rain + night vignette overlays */}
-        <div className="journey-rain" aria-hidden />
+        <div className="journey-rain-overlay" aria-hidden />
         <div className="journey-sos-pulse" aria-hidden />
 
         {/* the bike */}
@@ -177,7 +177,7 @@ export default function RideJourney() {
               initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -30, opacity: 0 }}
-              transition={{ duration: 0.55, ease: EASE }}
+              transition={{ duration: 0.38, ease: EASE }}
             >
               {c.title}
             </motion.h2>
@@ -204,7 +204,7 @@ export default function RideJourney() {
             initial={{ x: 60, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 40, opacity: 0 }}
-            transition={{ duration: 0.55, ease: EASE }}
+            transition={{ duration: 0.4, ease: EASE }}
           >
             <span className="journey-notif-icon">
               <Icon size={17} strokeWidth={1.8} />

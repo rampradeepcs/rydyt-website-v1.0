@@ -1,6 +1,6 @@
 .journey {
   position: relative;
-  height: 700vh; /* 600% pin distance + exit */
+  /* height comes from the ScrollTrigger pin spacer (+=780%) */
 }
 
 .journey-sticky {
@@ -194,27 +194,25 @@
 }
 
 /* ---------- weather overlays ---------- */
-.journey-rain {
+.journey-rain-overlay {
   position: absolute;
   inset: 0;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 1s;
-  background-image: repeating-linear-gradient(
-    108deg,
-    transparent 0 8px,
-    rgba(190, 210, 255, 0.14) 8px 9px
-  );
-  animation: rain-fall 0.5s linear infinite;
+  transition: opacity 0.8s;
+  background-image:
+    repeating-linear-gradient(108deg, transparent 0 7px, rgba(190, 210, 255, 0.28) 7px 8.5px),
+    repeating-linear-gradient(112deg, transparent 0 13px, rgba(190, 210, 255, 0.16) 13px 14px);
+  animation: rain-fall 0.4s linear infinite;
 }
 
 @keyframes rain-fall {
   to {
-    background-position: -40px 90px;
+    background-position: -48px 110px, -30px 80px;
   }
 }
 
-.journey-sticky.journey-rain .journey-rain {
+.journey-sticky.journey-rain .journey-rain-overlay {
   opacity: 1;
 }
 

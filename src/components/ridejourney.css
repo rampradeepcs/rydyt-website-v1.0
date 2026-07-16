@@ -604,11 +604,13 @@
 @media (max-width: 860px) {
   .journey-screen {
     /* margin-based centering — the motion enter/exit animation owns
-       the inline transform, so translateX(50%) would be overwritten */
+       the inline transform, so translateX(50%) would be overwritten.
+       Anchored above the road plane (46% tall) so it floats in the sky
+       gap between the caption and the horizon, clear of the bike. */
     right: 50%;
-    margin-right: calc(min(78vw, 380px) / -2);
-    bottom: clamp(110px, 15vh, 160px);
-    width: min(78vw, 380px);
+    margin-right: calc(min(74vw, 350px) / -2);
+    bottom: calc(46% + 3vh);
+    width: min(74vw, 350px);
   }
 
   .journey-screen figcaption {

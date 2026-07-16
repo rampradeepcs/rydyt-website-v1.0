@@ -296,6 +296,31 @@
 @media (max-width: 900px) {
   .chip-a { left: 0; }
   .chip-b { right: 0; }
+
+  /* bigger phone, smaller chips */
+  .iphone-wrap {
+    height: 74%;
+  }
+
+  /* flatten the 3D pop-out — the perspective projection scaled chips
+     ~1.15x past their layout box, pushing chip-b off the right edge */
+  .hero-chip-pos {
+    transform: translateZ(24px);
+  }
+
+  .hero-chip {
+    padding: 8px 12px;
+    gap: 8px;
+    border-radius: 11px;
+  }
+
+  .hero-chip strong {
+    font-size: 10.5px;
+  }
+
+  .hero-chip small {
+    font-size: 9px;
+  }
 }
 
 .hero-scroll-hint {
@@ -312,6 +337,10 @@
   text-transform: uppercase;
   color: var(--faint);
   z-index: 3;
+}
+
+.hero-scroll-hint span {
+  white-space: nowrap;
 }
 
 .hero-scroll-hint svg {

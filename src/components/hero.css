@@ -156,9 +156,10 @@
   top: 50%;
   height: 64%;
   aspect-ratio: 1262 / 2648;
-  translate: -50% -50%;
   z-index: 2;
-  transform: rotateY(-16deg) rotateX(5deg) rotateZ(-3deg);
+  /* centering lives inside transform — a separate `translate` property
+     gets dropped by the production CSS minifier when transform is set */
+  transform: translate(-50%, -50%) rotateY(-16deg) rotateX(5deg) rotateZ(-3deg);
   transform-style: preserve-3d;
   pointer-events: none;
 }

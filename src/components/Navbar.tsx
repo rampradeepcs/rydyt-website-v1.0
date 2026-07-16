@@ -18,6 +18,13 @@ const LINKS = [
   { label: 'Community', href: '#community' },
 ]
 
+/* standalone pages, shown as a secondary group in the overlay */
+const PAGES = [
+  { label: 'Privacy Policy', href: 'privacy.html' },
+  { label: 'Terms & Conditions', href: 'terms.html' },
+  { label: 'Blogs', href: 'blog.html' },
+]
+
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
@@ -113,6 +120,24 @@ export default function Navbar() {
               <span className="nav-overlay-index">0{i + 1}</span>
               {l.label}
             </motion.button>
+          ))}
+        </div>
+        <div className="nav-overlay-pages">
+          {PAGES.map((p, i) => (
+            <motion.a
+              key={p.href}
+              href={p.href}
+              data-cursor="hover"
+              initial={false}
+              animate={open ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+              transition={{
+                delay: open ? 0.2 + (LINKS.length + i) * 0.06 : 0,
+                duration: 0.6,
+                ease: EASE,
+              }}
+            >
+              {p.label}
+            </motion.a>
           ))}
         </div>
         <div className="nav-overlay-foot">

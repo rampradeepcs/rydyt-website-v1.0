@@ -26,6 +26,19 @@
 html {
   scrollbar-width: thin;
   scrollbar-color: rgba(232, 35, 42, 0.5) #0a0a0b;
+  /* iOS Safari ignores body-level overflow-x for viewport panning, and
+     lets 3D-transformed elements (hero chips/phone) escape ancestor
+     overflow:hidden — clip at the root so the page can never pan
+     sideways. The @supports upgrade to `clip` (below) avoids creating
+     a scroll container; hidden is the pre-Safari-16 fallback. */
+  overflow-x: hidden;
+}
+
+@supports (overflow-x: clip) {
+  html,
+  body {
+    overflow-x: clip;
+  }
 }
 
 html.lenis,

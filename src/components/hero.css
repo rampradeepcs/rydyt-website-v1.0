@@ -297,6 +297,11 @@
   .chip-a { left: 0; }
   .chip-b { right: 0; }
 
+  /* the navbar already carries a Join Beta CTA on phones */
+  .hero-actions .hero-beta-btn {
+    display: none;
+  }
+
   /* bigger phone, smaller chips */
   .iphone-wrap {
     height: 74%;

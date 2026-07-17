@@ -131,7 +131,7 @@ export default function Hero() {
             <MagneticButton variant="ghost" href="#features">
               <Play size={13} /> Watch Demo
             </MagneticButton>
-            <MagneticButton variant="ghost" onClick={openBetaModal}>
+            <MagneticButton variant="ghost" className="hero-beta-btn" onClick={openBetaModal}>
               Join Beta
             </MagneticButton>
           </motion.div>

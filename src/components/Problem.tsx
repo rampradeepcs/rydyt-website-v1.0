@@ -41,7 +41,7 @@ export default function Problem() {
 
       tl.fromTo(
         '.problem-title span',
-        { y: '110%' },
+        { y: '125%' },
         { y: 0, stagger: 0.06, duration: 0.5, ease: 'power3.out' },
       )
         .fromTo('.problem-map', { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.5 }, '<0.2')

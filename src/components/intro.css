@@ -45,6 +45,9 @@
   width: 100%;
   border-radius: 44px;
   filter: drop-shadow(0 40px 90px rgba(0, 0, 0, 0.85));
+  /* the device inside app-home.png sits ~3.2% left of the image's
+     center — nudge right so the visible phone centers in the viewport */
+  margin-left: 3.2%;
 }
 
 .intro-glow {

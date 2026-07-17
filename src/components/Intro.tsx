@@ -28,7 +28,7 @@ export default function Intro() {
         },
       })
 
-      tl.fromTo('.intro-word span', { y: '110%' }, { y: 0, stagger: 0.08, duration: 0.6, ease: 'power3.out' })
+      tl.fromTo('.intro-word span', { y: '125%' }, { y: 0, stagger: 0.08, duration: 0.6, ease: 'power3.out' })
         // phone powers on from darkness
         .fromTo(
           '.intro-phone',

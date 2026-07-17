@@ -213,11 +213,15 @@ h3 {
 .reveal-line {
   display: block;
   overflow: hidden;
+  /* room for descenders (g, y, j) inside the reveal mask — the
+     negative margin keeps line spacing unchanged */
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
 }
 
 .reveal-line > span {
   display: block;
-  transform: translateY(110%);
+  transform: translateY(125%);
 }
 
 @media (prefers-reduced-motion: reduce) {

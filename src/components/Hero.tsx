@@ -92,7 +92,7 @@ export default function Hero() {
           <h1 className="hero-title" aria-label="Ride Smarter. Ride Together.">
             <span className="reveal-line">
               <motion.span
-                initial={{ y: '110%' }}
+                initial={{ y: '125%' }}
                 animate={{ y: 0 }}
                 transition={{ delay: 0.65, duration: 1, ease: EASE }}
               >
@@ -101,7 +101,7 @@ export default function Hero() {
             </span>
             <span className="reveal-line">
               <motion.span
-                initial={{ y: '110%' }}
+                initial={{ y: '125%' }}
                 animate={{ y: 0 }}
                 transition={{ delay: 0.8, duration: 1, ease: EASE }}
               >

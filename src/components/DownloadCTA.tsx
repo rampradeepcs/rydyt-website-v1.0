@@ -36,7 +36,7 @@ export default function DownloadCTA() {
       )
       gsap.fromTo(
         '.cta-title span',
-        { y: '110%' },
+        { y: '125%' },
         {
           y: 0,
           stagger: 0.1,

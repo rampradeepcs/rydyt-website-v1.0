@@ -339,6 +339,9 @@
 }
 
 /* ---------- weather overlays ---------- */
+/* rain on the visor: scattered droplets clinging to the glass while
+   elongated drops race down. Prime-sized tiles keep the pattern from
+   reading as a grid; runner layers travel exactly one tile per loop. */
 .journey-rain-overlay {
   position: absolute;
   inset: 0;
@@ -346,14 +349,36 @@
   opacity: 0;
   transition: opacity 0.8s;
   background-image:
-    repeating-linear-gradient(108deg, transparent 0 7px, rgba(190, 210, 255, 0.28) 7px 8.5px),
-    repeating-linear-gradient(112deg, transparent 0 13px, rgba(190, 210, 255, 0.16) 13px 14px);
-  animation: rain-fall 0.4s linear infinite;
+    /* drops running down the glass */
+    radial-gradient(1.7px 10px at 50% 50%, rgba(216, 232, 255, 0.55), rgba(216, 232, 255, 0.12) 70%, transparent),
+    radial-gradient(1.4px 8px at 50% 50%, rgba(216, 232, 255, 0.4), rgba(216, 232, 255, 0.08) 70%, transparent),
+    /* droplets clinging to the glass */
+    radial-gradient(circle at 50% 50%, rgba(216, 232, 255, 0.5) 0 1.7px, rgba(216, 232, 255, 0.1) 2.8px, transparent 3.4px),
+    radial-gradient(circle at 50% 50%, rgba(216, 232, 255, 0.34) 0 1.2px, rgba(216, 232, 255, 0.07) 2px, transparent 2.6px),
+    radial-gradient(circle at 50% 50%, rgba(224, 238, 255, 0.55) 0 2.6px, rgba(255, 255, 255, 0.14) 4.2px, transparent 5.2px);
+  background-size:
+    127px 149px,
+    97px 131px,
+    61px 53px,
+    37px 43px,
+    173px 167px;
+  background-position:
+    17px 0,
+    61px 40px,
+    0 0,
+    19px 11px,
+    43px 29px;
+  animation: glass-drops 3.4s linear infinite;
 }
 
-@keyframes rain-fall {
+@keyframes glass-drops {
   to {
-    background-position: -48px 110px, -30px 80px;
+    background-position:
+      17px 149px,
+      61px 171px,
+      0 0,
+      19px 11px,
+      43px 29px;
   }
 }
 
@@ -609,7 +634,7 @@
        gap between the caption and the horizon, clear of the bike. */
     right: 50%;
     margin-right: calc(min(74vw, 350px) / -2);
-    bottom: calc(46% + 3vh);
+    bottom: calc(46% + 0.5vh);
     width: min(74vw, 350px);
   }
 

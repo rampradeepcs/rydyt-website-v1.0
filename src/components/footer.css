@@ -87,6 +87,18 @@
   margin: 0 auto;
 }
 
+/* tablets: link columns side by side, brand and compass full-width */
+@media (min-width: 600px) and (max-width: 879px) {
+  .footer-inner {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-brand,
+  .footer-compass {
+    grid-column: 1 / -1;
+  }
+}
+
 @media (min-width: 880px) {
   .footer-inner {
     grid-template-columns: 1.4fr repeat(3, 1fr) 0.9fr;

@@ -96,8 +96,9 @@
   max-width: 520px;
 }
 
-/* short viewports: shrink the stage so the pinned scene fits 100vh */
-@media (max-height: 700px) {
+/* short viewports: scale the scene with height so the pin fits 100vh
+   (phone height ~= 1.88x its width, hence the vh-based width caps) */
+@media (max-height: 850px) {
   .intro-sticky {
     padding-top: 76px;
     padding-bottom: 30px;
@@ -105,11 +106,11 @@
   }
 
   .intro-word {
-    font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+    font-size: clamp(1.6rem, 4.6vh, 2.6rem);
   }
 
   .intro-stage {
-    width: min(48vw, 175px);
+    width: min(48vw, 29vh);
   }
 
   .intro-sub {

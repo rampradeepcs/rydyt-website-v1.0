@@ -102,9 +102,9 @@
 
 /* short viewports: smaller phones, tighter headline, and panels
    pushed below the headline so nothing overlaps or clips */
-@media (min-width: 721px) and (max-height: 700px) {
+@media (min-width: 721px) and (max-height: 800px) {
   .feature-phone {
-    width: clamp(150px, 15.6vw, 200px);
+    width: min(clamp(150px, 15.6vw, 230px), 28vh);
   }
 
   .features-track {

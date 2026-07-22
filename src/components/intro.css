@@ -95,3 +95,24 @@
   z-index: 2;
   max-width: 520px;
 }
+
+/* short viewports: shrink the stage so the pinned scene fits 100vh */
+@media (max-height: 700px) {
+  .intro-sticky {
+    padding-top: 76px;
+    padding-bottom: 30px;
+    gap: 12px;
+  }
+
+  .intro-word {
+    font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+  }
+
+  .intro-stage {
+    width: min(48vw, 175px);
+  }
+
+  .intro-sub {
+    font-size: 13.5px;
+  }
+}

@@ -104,6 +104,27 @@
   letter-spacing: -0.035em;
 }
 
+/* short landscape viewports (small laptops, devtools open):
+   clear the fixed nav and shrink the type so nothing collides */
+@media (min-width: 900px) and (max-height: 700px) {
+  .hero {
+    padding-top: 76px;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 4.6vw, 4rem);
+    margin: 14px 0 14px;
+  }
+
+  .hero-lead {
+    font-size: 15px;
+  }
+
+  .hero-copy {
+    padding-bottom: 2vh;
+  }
+}
+
 .hero-title em {
   font-style: normal;
   color: var(--red);
@@ -356,5 +377,12 @@
 @keyframes hint-bob {
   50% {
     transform: translateY(6px);
+  }
+}
+
+/* keep last: hide the hint on short landscape viewports */
+@media (min-width: 900px) and (max-height: 700px) {
+  .hero-scroll-hint {
+    display: none;
   }
 }

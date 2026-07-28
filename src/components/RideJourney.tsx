@@ -205,7 +205,7 @@ export default function RideJourney() {
               alt=""
               camera-orbit="180deg 80deg 70%"
               field-of-view="22deg"
-              exposure="2.4"
+              exposure="1.3"
               shadow-intensity="0"
               interaction-prompt="none"
               disable-zoom

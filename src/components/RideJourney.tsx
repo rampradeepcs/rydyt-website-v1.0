@@ -30,6 +30,15 @@ const RAIN_DROPS: Array<[number, number, number]> = [
   [88, 58, 10],
   [17, 68, 11],
   [47, 64, 9],
+  [7, 38, 9],
+  [33, 74, 13],
+  [58, 36, 15],
+  [72, 66, 9],
+  [92, 20, 12],
+  [43, 8, 11],
+  [84, 80, 14],
+  [22, 32, 8],
+  [63, 78, 10],
 ]
 
 /* drops that run down the glass: [x%, y%, size px, loop s, delay s] */
@@ -37,6 +46,7 @@ const RAIN_RUNNERS: Array<[number, number, number, number, number]> = [
   [31, 8, 9, 8, 0.5],
   [61, 5, 11, 9.5, 3],
   [83, 10, 8, 11, 6],
+  [14, 6, 10, 10, 4.5],
 ]
 
 type Chapter = {

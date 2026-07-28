@@ -228,3 +228,45 @@
     gap: 12vw;
   }
 }
+
+/* keep last: small AND short phones — compact headline and copy,
+   shrink the phone, so the stacked panel fits the pinned viewport */
+@media (max-width: 720px) and (max-height: 700px) {
+  .features-headline {
+    top: 78px;
+  }
+
+  .features-headline h2 {
+    font-size: 1.3rem;
+    margin-top: 8px;
+  }
+
+  .features-hint {
+    display: none;
+  }
+
+  .feature-num {
+    display: none;
+  }
+
+  .feature-tag {
+    margin: 6px 0;
+  }
+
+  .feature-copy h3 {
+    font-size: 1.25rem;
+    margin-bottom: 8px;
+  }
+
+  .feature-copy p {
+    font-size: 12.5px;
+  }
+
+  .feature-phone {
+    width: min(40vw, 22vh);
+  }
+
+  .features-track {
+    padding-top: 18vh;
+  }
+}

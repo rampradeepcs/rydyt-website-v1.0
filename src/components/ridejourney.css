@@ -754,3 +754,19 @@
     display: none;
   }
 }
+
+/* small AND short phones (e.g. 320x568): the sky band can't hold the
+   full panel, so shrink it and let it straddle the horizon — clear of
+   both the caption above and the bike below */
+@media (max-width: 860px) and (max-height: 700px) {
+  .journey-screen {
+    width: min(54vw, 250px);
+    margin-right: calc(min(54vw, 250px) / -2);
+    bottom: calc(46% - 5vh);
+  }
+
+  .journey-screen figcaption {
+    margin-top: 8px;
+    font-size: 9px;
+  }
+}

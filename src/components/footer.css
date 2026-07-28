@@ -120,7 +120,7 @@
 
 .footer-logo span {
   font-family: var(--font-display);
-  letter-spacing: 0.34em;
+  letter-spacing: 0.24em;
   font-size: 15px;
   color: var(--text);
 }

@@ -71,8 +71,8 @@
   overflow: hidden;
   font-family: var(--font-display);
   font-size: clamp(2rem, 5vw, 3rem);
-  letter-spacing: 0.42em;
-  margin-left: 0.42em;
+  letter-spacing: 0.3em;
+  margin-left: 0.3em;
   font-weight: 300;
 }
 

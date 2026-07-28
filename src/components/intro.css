@@ -29,8 +29,8 @@
 }
 
 .intro-brand {
-  letter-spacing: 0.3em;
-  margin-left: 0.3em;
+  letter-spacing: 0.22em;
+  margin-left: 0.22em;
   color: var(--red);
   text-shadow: 0 0 60px var(--red-glow);
 }

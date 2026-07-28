@@ -19,6 +19,26 @@ gsap.registerPlugin(ScrollTrigger)
 
 const EASE = [0.16, 1, 0.3, 1] as const
 
+/* rain-on-visor droplets: [x%, y%, size px] */
+const RAIN_DROPS: Array<[number, number, number]> = [
+  [12, 18, 14],
+  [26, 52, 10],
+  [38, 30, 18],
+  [55, 14, 9],
+  [66, 44, 13],
+  [79, 26, 16],
+  [88, 58, 10],
+  [17, 68, 11],
+  [47, 64, 9],
+]
+
+/* drops that run down the glass: [x%, y%, size px, loop s, delay s] */
+const RAIN_RUNNERS: Array<[number, number, number, number, number]> = [
+  [31, 8, 9, 8, 0.5],
+  [61, 5, 11, 9.5, 3],
+  [83, 10, 8, 11, 6],
+]
+
 type Chapter = {
   id: string
   time: string
@@ -194,7 +214,22 @@ export default function RideJourney() {
         <div className="journey-vignette" aria-hidden />
 
         {/* rain + night vignette overlays */}
-        <div className="journey-rain-overlay" aria-hidden />
+        <div className="journey-rain-overlay" aria-hidden>
+          {RAIN_DROPS.map(([x, y, s], i) => (
+            <span
+              key={`s${i}`}
+              className="rain-drop"
+              style={{ left: `${x}%`, top: `${y}%`, '--s': s } as React.CSSProperties}
+            />
+          ))}
+          {RAIN_RUNNERS.map(([x, y, s, t, d], i) => (
+            <span
+              key={`r${i}`}
+              className="rain-drop rain-drop-run"
+              style={{ left: `${x}%`, top: `${y}%`, '--s': s, '--t': `${t}s`, '--d': `${d}s` } as React.CSSProperties}
+            />
+          ))}
+        </div>
         <div className="journey-sos-pulse" aria-hidden />
 
         {/* the bike — 3D model viewed from behind */}

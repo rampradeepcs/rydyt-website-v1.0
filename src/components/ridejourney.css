@@ -379,42 +379,77 @@
 }
 
 /* ---------- weather overlays ---------- */
-/* rain on the visor: scattered droplets clinging to the glass while
-   elongated drops race down. Prime-sized tiles keep the pattern from
-   reading as a grid; runner layers travel exactly one tile per loop. */
+/* rain on the visor: a handful of realistic water beads clinging to
+   the glass, plus a few that occasionally run down. Each bead is a
+   lens: refractive blur, soft fill, specular highlight, edge rim. */
 .journey-rain-overlay {
   position: absolute;
   inset: 0;
   pointer-events: none;
   opacity: 0;
   transition: opacity 0.8s;
-  background-image:
-    /* drops running down the glass */
-    radial-gradient(1.7px 10px at 50% 50%, rgba(216, 232, 255, 0.5), rgba(216, 232, 255, 0.1) 70%, transparent),
-    radial-gradient(1.4px 8px at 50% 50%, rgba(216, 232, 255, 0.35), rgba(216, 232, 255, 0.07) 70%, transparent),
-    /* droplets clinging to the glass */
-    radial-gradient(circle at 50% 50%, rgba(216, 232, 255, 0.45) 0 1.7px, rgba(216, 232, 255, 0.09) 2.8px, transparent 3.4px),
-    radial-gradient(circle at 50% 50%, rgba(224, 238, 255, 0.5) 0 2.6px, rgba(255, 255, 255, 0.12) 4.2px, transparent 5.2px);
-  background-size:
-    151px 173px,
-    197px 211px,
-    89px 79px,
-    211px 199px;
-  background-position:
-    17px 0,
-    61px 40px,
-    0 0,
-    43px 29px;
-  animation: glass-drops 3.8s linear infinite;
 }
 
-@keyframes glass-drops {
-  to {
-    background-position:
-      17px 173px,
-      61px 251px,
-      0 0,
-      43px 29px;
+.rain-drop {
+  position: absolute;
+  width: calc(var(--s) * 1px);
+  height: calc(var(--s) * 1.3px);
+  border-radius: 48% 52% 55% 45% / 40% 42% 60% 58%;
+  background: radial-gradient(
+    120% 120% at 32% 24%,
+    rgba(255, 255, 255, 0.38) 0%,
+    rgba(255, 255, 255, 0.1) 22%,
+    rgba(190, 214, 255, 0.04) 50%,
+    rgba(170, 198, 240, 0.14) 100%
+  );
+  box-shadow:
+    inset 1px 1px 2px rgba(255, 255, 255, 0.35),
+    inset -1px -2px 3px rgba(255, 255, 255, 0.12),
+    0 3px 5px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* specular glint */
+.rain-drop::after {
+  content: '';
+  position: absolute;
+  left: 24%;
+  top: 16%;
+  width: 22%;
+  height: 16%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.75);
+  filter: blur(0.5px);
+}
+
+/* the occasional drop that loses grip and streaks down the glass */
+.rain-drop-run {
+  animation: drop-run var(--t, 9s) linear var(--d, 0s) infinite;
+}
+
+@keyframes drop-run {
+  0% {
+    transform: translateY(0) scaleY(1);
+    opacity: 0;
+  }
+  4% {
+    opacity: 1;
+  }
+  9% {
+    transform: translateY(1vh) scaleY(1.4);
+  }
+  30% {
+    transform: translateY(52vh) scaleY(1.6);
+    opacity: 1;
+  }
+  33% {
+    transform: translateY(56vh) scaleY(1.6);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(56vh) scaleY(1.6);
+    opacity: 0;
   }
 }
 

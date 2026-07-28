@@ -412,7 +412,7 @@
   bottom: 7%;
   left: 50%;
   transform: translateX(-50%);
-  width: clamp(150px, 22vh, 230px);
+  width: clamp(175px, 29vh, 260px);
   z-index: 5;
   filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 0.8));
 }
@@ -421,6 +421,16 @@
   width: 100%;
   animation: bike-bob 1.1s ease-in-out infinite;
   transform-origin: 50% 85%;
+}
+
+.journey-bike model-viewer {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  --poster-color: transparent;
+  background: transparent;
+  pointer-events: none;
+  display: block;
 }
 
 @keyframes bike-bob {
@@ -661,7 +671,7 @@
   }
 
   .journey-bike-wrap {
-    width: clamp(120px, 18vh, 170px);
+    width: clamp(135px, 21vh, 195px);
   }
 
   .journey-hud {

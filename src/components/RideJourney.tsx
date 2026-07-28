@@ -11,7 +11,6 @@ import {
   Flag,
   Navigation,
 } from 'lucide-react'
-import BikeFront from './BikeFront'
 import Particles from './Particles'
 import './ridejourney.css'
 import { asset } from '../lib/asset'
@@ -105,6 +104,11 @@ export default function RideJourney() {
   const [chapter, setChapter] = useState(0)
   const chapterRef = useRef(0)
 
+  /* load the <model-viewer> element definition off the critical path */
+  useEffect(() => {
+    import('@google/model-viewer')
+  }, [])
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       const bikeLean = gsap.quickTo('.journey-bike', 'rotation', { duration: 0.6, ease: 'power2.out' })
@@ -193,9 +197,23 @@ export default function RideJourney() {
         <div className="journey-rain-overlay" aria-hidden />
         <div className="journey-sos-pulse" aria-hidden />
 
-        {/* the bike */}
+        {/* the bike — 3D model viewed from behind */}
         <div className="journey-bike-wrap" aria-hidden>
-          <BikeFront className="journey-bike" />
+          <div className="journey-bike">
+            <model-viewer
+              src={asset('/assets/bike.glb')}
+              alt=""
+              camera-orbit="180deg 80deg 70%"
+              field-of-view="22deg"
+              exposure="2.4"
+              shadow-intensity="0"
+              interaction-prompt="none"
+              disable-zoom
+              disable-pan
+              disable-tap
+              loading="lazy"
+            />
+          </div>
         </div>
 
         {/* header */}

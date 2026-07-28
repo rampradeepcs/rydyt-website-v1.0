@@ -455,12 +455,13 @@
 .journey-head {
   position: relative;
   z-index: 6;
-  padding: clamp(90px, 12vh, 130px) clamp(20px, 6vw, 96px) 0;
+  padding: clamp(64px, 12vh, 130px) clamp(20px, 6vw, 96px) 0;
   max-width: 640px;
 }
 
 .journey-title {
-  font-size: clamp(3rem, 9vw, 7rem);
+  /* vh cap keeps the chapter title from swallowing short viewports */
+  font-size: min(clamp(3rem, 9vw, 7rem), 13vh);
   line-height: 1;
   letter-spacing: -0.04em;
   margin: 14px 0 12px;

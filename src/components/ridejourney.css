@@ -390,34 +390,30 @@
   transition: opacity 0.8s;
   background-image:
     /* drops running down the glass */
-    radial-gradient(1.7px 10px at 50% 50%, rgba(216, 232, 255, 0.55), rgba(216, 232, 255, 0.12) 70%, transparent),
-    radial-gradient(1.4px 8px at 50% 50%, rgba(216, 232, 255, 0.4), rgba(216, 232, 255, 0.08) 70%, transparent),
+    radial-gradient(1.7px 10px at 50% 50%, rgba(216, 232, 255, 0.5), rgba(216, 232, 255, 0.1) 70%, transparent),
+    radial-gradient(1.4px 8px at 50% 50%, rgba(216, 232, 255, 0.35), rgba(216, 232, 255, 0.07) 70%, transparent),
     /* droplets clinging to the glass */
-    radial-gradient(circle at 50% 50%, rgba(216, 232, 255, 0.5) 0 1.7px, rgba(216, 232, 255, 0.1) 2.8px, transparent 3.4px),
-    radial-gradient(circle at 50% 50%, rgba(216, 232, 255, 0.34) 0 1.2px, rgba(216, 232, 255, 0.07) 2px, transparent 2.6px),
-    radial-gradient(circle at 50% 50%, rgba(224, 238, 255, 0.55) 0 2.6px, rgba(255, 255, 255, 0.14) 4.2px, transparent 5.2px);
+    radial-gradient(circle at 50% 50%, rgba(216, 232, 255, 0.45) 0 1.7px, rgba(216, 232, 255, 0.09) 2.8px, transparent 3.4px),
+    radial-gradient(circle at 50% 50%, rgba(224, 238, 255, 0.5) 0 2.6px, rgba(255, 255, 255, 0.12) 4.2px, transparent 5.2px);
   background-size:
-    127px 149px,
-    97px 131px,
-    61px 53px,
-    37px 43px,
-    173px 167px;
+    151px 173px,
+    197px 211px,
+    89px 79px,
+    211px 199px;
   background-position:
     17px 0,
     61px 40px,
     0 0,
-    19px 11px,
     43px 29px;
-  animation: glass-drops 3.4s linear infinite;
+  animation: glass-drops 3.8s linear infinite;
 }
 
 @keyframes glass-drops {
   to {
     background-position:
-      17px 149px,
-      61px 171px,
+      17px 173px,
+      61px 251px,
       0 0,
-      19px 11px,
       43px 29px;
   }
 }

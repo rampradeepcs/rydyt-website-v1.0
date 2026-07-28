@@ -193,6 +193,46 @@
   animation-play-state: paused; /* bike has stopped at the destination */
 }
 
+.journey-arrival .journey-bike {
+  animation-play-state: paused; /* no more ride bob — parked */
+}
+
+/* hazard lights blink on the tail once the destination is reached */
+.journey-hazard {
+  position: absolute;
+  top: 54%;
+  width: 11%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffc257 0%, rgba(255, 150, 40, 0.65) 40%, transparent 70%);
+  box-shadow: 0 0 14px rgba(255, 160, 50, 0.8);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.journey-hazard-l {
+  left: 24%;
+}
+
+.journey-hazard-r {
+  right: 24%;
+}
+
+.journey-arrival .journey-hazard {
+  animation: hazard-blink 0.85s step-start infinite;
+}
+
+@keyframes hazard-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
 /* checkered strip painted on the road plane, revealed at the destination */
 .journey-finish-line {
   position: absolute;

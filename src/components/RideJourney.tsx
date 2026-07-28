@@ -200,6 +200,8 @@ export default function RideJourney() {
         {/* the bike — 3D model viewed from behind */}
         <div className="journey-bike-wrap" aria-hidden>
           <div className="journey-bike">
+            <span className="journey-hazard journey-hazard-l" />
+            <span className="journey-hazard journey-hazard-r" />
             <model-viewer
               src={asset('/assets/bike.glb')}
               alt=""

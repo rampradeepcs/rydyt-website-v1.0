@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>RYDYT launch reel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1080px; height: 1920px; overflow: hidden; background: #050505; }
+  #stage { position: relative; width: 1080px; height: 1920px; overflow: hidden;
+    font-family: 'Inter', sans-serif; color: #f5f5f4; }
+
+  /* ---------- ambience ---------- */
+  .bg-glow-a { position: absolute; left: -20%; top: -8%; width: 140%; height: 60%;
+    background: radial-gradient(50% 50% at 50% 40%, rgba(232,35,42,0.16), transparent 70%); }
+  .bg-glow-b { position: absolute; left: -10%; bottom: -12%; width: 120%; height: 55%;
+    background: radial-gradient(50% 50% at 50% 60%, rgba(232,35,42,0.1), transparent 70%); }
+  .bg-grid { position: absolute; inset: 0; opacity: 0.5;
+    background-image: linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 90px 90px; }
+  .dust i { position: absolute; border-radius: 50%; background: rgba(255,255,255,0.35); }
+  .dust i.r { background: rgba(232,35,42,0.55); }
+
+  /* ---------- shared text ---------- */
+  .kick { font-size: 26px; letter-spacing: 0.42em; text-transform: uppercase; color: rgba(245,245,244,0.6); }
+  .kick b { color: #e8232a; font-weight: 500; }
+  .h1 { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 108px; line-height: 1.04;
+    letter-spacing: -0.02em; }
+  .h1 em { font-style: normal; color: #e8232a; text-shadow: 0 0 70px rgba(232,35,42,0.5); }
+
+  /* ---------- intro ---------- */
+  #intro { position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 34px; text-align: center; }
+  #intro svg { width: 210px; height: 210px; filter: drop-shadow(0 0 60px rgba(232,35,42,0.65)); }
+  #intro-word { font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 120px;
+    letter-spacing: 0.24em; margin-left: 0.24em; }
+  #intro-live { font-size: 34px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(245,245,244,0.75); }
+  #intro-live b { color: #e8232a; font-weight: 500; }
+
+  /* ---------- section headline ---------- */
+  #head { position: absolute; top: 128px; left: 0; right: 0; text-align: center; }
+  #head .kick { margin-bottom: 22px; }
+
+  /* ---------- MacBook ---------- */
+  #mac { position: absolute; left: 50%; top: 42%; width: 960px; margin-left: -480px; }
+  .mac-screen { position: relative; background: #0b0b0d; border-radius: 30px; padding: 16px;
+    border: 1px solid #26262b;
+    box-shadow: 0 60px 140px rgba(0,0,0,0.85), 0 0 120px rgba(232,35,42,0.12); }
+  .mac-cam { position: absolute; top: 7px; left: 50%; transform: translateX(-50%);
+    width: 108px; height: 14px; border-radius: 0 0 10px 10px; background: #0b0b0d; z-index: 2; }
+  .mac-view { border-radius: 16px; overflow: hidden; aspect-ratio: 1440 / 900; background: #050505; }
+  .mac-view img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .mac-base { margin: 0 -46px; height: 26px; border-radius: 0 0 22px 22px;
+    background: linear-gradient(180deg, #3c3c42 0%, #232327 45%, #101013 100%); position: relative; }
+  .mac-base::after { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 190px; height: 11px; border-radius: 0 0 12px 12px; background: #17171a; }
+
+  /* ---------- iPhone ---------- */
+  #phone { position: absolute; left: 50%; top: 37%; width: 448px; margin-left: -224px; }
+  .ip-frame { position: relative; border-radius: 66px; padding: 15px;
+    background: linear-gradient(150deg, #3a3a40 0%, #17171a 30%, #0c0c0e 70%, #26262b 100%);
+    box-shadow: inset 0 0 0 3px rgba(255,255,255,0.06), inset 0 0 0 7px rgba(0,0,0,0.85),
+      0 60px 140px rgba(0,0,0,0.85), 0 0 130px rgba(232,35,42,0.14); }
+  .ip-view { border-radius: 52px; overflow: hidden; aspect-ratio: 390 / 844; background: #050505; }
+  .ip-view img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .ip-island { position: absolute; top: 33px; left: 50%; transform: translateX(-50%);
+    width: 118px; height: 34px; border-radius: 999px; background: #000; z-index: 2; }
+
+  .dev-glow { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    width: 130%; height: 130%; pointer-events: none;
+    background: radial-gradient(50% 50% at 50% 50%, rgba(232,35,42,0.22), transparent 68%);
+    filter: blur(60px); }
+
+  /* ---------- captions under devices ---------- */
+  .cap { position: absolute; left: 0; right: 0; bottom: 150px; text-align: center; }
+  .cap .line { font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 54px; letter-spacing: -0.01em; }
+  .cap .sub { margin-top: 16px; font-size: 26px; letter-spacing: 0.3em; text-transform: uppercase;
+    color: rgba(245,245,244,0.55); }
+
+  .chips { position: absolute; left: 0; right: 0; display: flex; justify-content: center; gap: 22px; bottom: 268px; }
+  .chip { display: inline-flex; align-items: center; gap: 12px; padding: 18px 30px; border-radius: 999px;
+    background: rgba(20,20,22,0.72); border: 1px solid rgba(255,255,255,0.12); font-size: 26px;
+    backdrop-filter: blur(6px); }
+  .chip s { width: 12px; height: 12px; border-radius: 50%; background: #e8232a;
+    box-shadow: 0 0 12px #e8232a; text-decoration: none; }
+  .chip.g s { background: #22c55e; box-shadow: 0 0 12px #22c55e; }
+  .chip.a s { background: #f5a623; box-shadow: 0 0 12px #f5a623; }
+
+  /* ---------- outro ---------- */
+  #outro { position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 30px; text-align: center; }
+  #outro svg { width: 150px; height: 150px; filter: drop-shadow(0 0 50px rgba(232,35,42,0.6)); }
+  #outro .big { font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 92px; line-height: 1.1;
+    letter-spacing: -0.02em; }
+  #outro .big em { font-style: normal; color: #e8232a; }
+  #outro .url { font-family: 'Poppins', sans-serif; font-weight: 500; font-size: 56px; color: #fff;
+    padding: 22px 58px; border: 2px solid rgba(232,35,42,0.65); border-radius: 999px;
+    background: rgba(232,35,42,0.12); box-shadow: 0 0 60px rgba(232,35,42,0.25); }
+  #outro .stores { display: flex; gap: 20px; font-size: 27px; color: rgba(245,245,244,0.7); }
+  #outro .stores span { padding: 16px 30px; border: 1px solid rgba(255,255,255,0.18); border-radius: 999px; }
+  #outro .bio { font-size: 26px; letter-spacing: 0.34em; text-transform: uppercase; color: rgba(245,245,244,0.5); }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="bg-glow-a"></div>
+  <div class="bg-glow-b"></div>
+  <div class="bg-grid"></div>
+  <div class="dust" id="dust"></div>
+
+  <div id="intro">
+    <svg viewBox="0 0 249 248" fill="#EB1D23"><path d="M13.0143 13.5431C8.12897 8.45926 11.732 0 18.7827 0H115.092C128.353 0 141.07 5.26784 150.447 14.6447L213.347 77.5446C232.978 97.1755 232.857 129.04 213.078 148.522L126.737 233.565C117.383 242.778 104.78 247.942 91.6508 247.942H50C22.3858 247.942 0 225.557 0 197.942V185.802C0 158.188 22.3858 135.802 50 135.802H117.757C122.183 135.802 124.426 141.13 121.333 144.296L93.7761 172.51C89.0719 177.326 82.6241 180.041 75.8917 180.041H55.2675C49.7447 180.041 45.2675 184.518 45.2675 190.041V193.704C45.2675 199.227 49.7446 203.704 55.2675 203.704H83.2125C88.5564 203.704 93.6781 201.565 97.4352 197.765L174.079 120.24C177.947 116.328 177.929 110.027 174.039 106.138L119.027 51.1254C115.276 47.3746 110.189 45.2675 104.884 45.2675L47.7592 45.2675C45.038 45.2675 42.4343 44.1585 40.5488 42.1964L21.75 22.6337L13.0143 13.5431Z"/><path d="M166.086 229.873C164.134 227.92 164.134 224.754 166.086 222.802L190.908 197.98C192.861 196.027 196.027 196.027 197.979 197.98L239.406 239.407C242.556 242.557 240.325 247.942 235.871 247.942H186.227C184.901 247.942 183.629 247.415 182.691 246.478L166.086 229.873Z"/></svg>
+    <div id="intro-word">RYDYT</div>
+    <div id="intro-live"><b>●</b>&nbsp; WE ARE NOW <b>LIVE</b></div>
+  </div>
+
+  <div id="head">
+    <div class="kick"><b>—</b> &nbsp;THE RIDING COMPANION PLATFORM&nbsp; <b>—</b></div>
+    <div class="h1" id="head-line">rydyt<em>.com</em></div>
+  </div>
+
+  <div id="mac">
+    <div class="dev-glow"></div>
+    <div class="mac-screen">
+      <div class="mac-cam"></div>
+      <div class="mac-view"><img id="mac-img" alt="" /></div>
+    </div>
+    <div class="mac-base"></div>
+  </div>
+
+  <div id="phone">
+    <div class="dev-glow"></div>
+    <div class="ip-frame">
+      <div class="ip-island"></div>
+      <div class="ip-view"><img id="ip-img" alt="" /></div>
+    </div>
+  </div>
+
+  <div class="chips" id="chips">
+    <span class="chip g"><s></s>Live tracking</span>
+    <span class="chip"><s></s>Group rides</span>
+    <span class="chip a"><s></s>SOS alerts</span>
+  </div>
+
+  <div class="cap" id="cap">
+    <div class="line" id="cap-line">Every ride. Every rider. <em style="font-style:normal;color:#e8232a">Connected.</em></div>
+    <div class="sub" id="cap-sub">SCROLL THE FULL EXPERIENCE</div>
+  </div>
+
+  <div id="outro">
+    <svg viewBox="0 0 249 248" fill="#EB1D23"><path d="M13.0143 13.5431C8.12897 8.45926 11.732 0 18.7827 0H115.092C128.353 0 141.07 5.26784 150.447 14.6447L213.347 77.5446C232.978 97.1755 232.857 129.04 213.078 148.522L126.737 233.565C117.383 242.778 104.78 247.942 91.6508 247.942H50C22.3858 247.942 0 225.557 0 197.942V185.802C0 158.188 22.3858 135.802 50 135.802H117.757C122.183 135.802 124.426 141.13 121.333 144.296L93.7761 172.51C89.0719 177.326 82.6241 180.041 75.8917 180.041H55.2675C49.7447 180.041 45.2675 184.518 45.2675 190.041V193.704C45.2675 199.227 49.7446 203.704 55.2675 203.704H83.2125C88.5564 203.704 93.6781 201.565 97.4352 197.765L174.079 120.24C177.947 116.328 177.929 110.027 174.039 106.138L119.027 51.1254C115.276 47.3746 110.189 45.2675 104.884 45.2675L47.7592 45.2675C45.038 45.2675 42.4343 44.1585 40.5488 42.1964L21.75 22.6337L13.0143 13.5431Z"/><path d="M166.086 229.873C164.134 227.92 164.134 224.754 166.086 222.802L190.908 197.98C192.861 196.027 196.027 196.027 197.979 197.98L239.406 239.407C242.556 242.557 240.325 247.942 235.871 247.942H186.227C184.901 247.942 183.629 247.415 182.691 246.478L166.086 229.873Z"/></svg>
+    <div class="big">Ride Smarter.<br /><em>Ride Together.</em></div>
+    <div class="url">rydyt.com</div>
+    <div class="stores"><span> App Store</span><span>▷ Google Play</span></div>
+    <div class="bio">LINK IN BIO · EARLY ACCESS OPEN</div>
+  </div>
+</div>
+
+<script>
+  const DESK_FRAMES = window.DESK_FRAMES || 264
+  const MOB_FRAMES = window.MOB_FRAMES || 168
+
+  /* deterministic pseudo-random dust */
+  ;(function () {
+    const dust = document.getElementById('dust')
+    let s = 42
+    const rnd = () => ((s = (s * 16807) % 2147483647) / 2147483647)
+    for (let i = 0; i < 46; i++) {
+      const d = document.createElement('i')
+      const size = 2 + rnd() * 5
+      d.style.width = d.style.height = size + 'px'
+      d.style.left = rnd() * 1080 + 'px'
+      d.style.top = rnd() * 1920 + 'px'
+      d.style.opacity = 0.12 + rnd() * 0.5
+      if (rnd() > 0.72) d.className = 'r'
+      dust.appendChild(d)
+    }
+  })()
+
+  const $ = (id) => document.getElementById(id)
+  const clamp01 = (v) => Math.max(0, Math.min(1, v))
+  const seg = (t, a, b) => clamp01((t - a) / (b - a))
+  const easeOut = (p) => 1 - Math.pow(1 - p, 3)
+  const easeInOut = (p) => (p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2)
+  const pad = (n) => String(n).padStart(4, '0')
+
+  const macImg = $('mac-img')
+  const ipImg = $('ip-img')
+  let lastMac = -1, lastIp = -1
+
+  window.seek = function (t) {
+    /* ---------- intro: 0 – 2.4 ---------- */
+    const intro = $('intro')
+    const iIn = easeOut(seg(t, 0.05, 0.9))
+    const iOut = easeInOut(seg(t, 1.9, 2.5))
+    intro.style.opacity = String(Math.min(iIn, 1 - iOut))
+    intro.style.transform = `translateY(${(1 - iIn) * 60 - iOut * 120}px) scale(${1 + iOut * 0.06})`
+    $('intro-live').style.opacity = String(Math.min(easeOut(seg(t, 1.0, 1.5)), 1 - iOut))
+
+    /* ---------- headline: enters 2.3, swaps text at 10.9, leaves 16.9 ---------- */
+    const head = $('head')
+    const hIn = easeOut(seg(t, 2.3, 3.0))
+    const hOut = easeInOut(seg(t, 16.9, 17.5))
+    head.style.opacity = String(Math.min(hIn, 1 - hOut))
+    head.style.transform = `translateY(${(1 - hIn) * 50}px)`
+    $('head-line').innerHTML = t < 10.9 ? 'rydyt<em>.com</em>' : 'Fully <em>responsive.</em>'
+
+    /* ---------- MacBook: 2.4 – 11.6 ---------- */
+    const mac = $('mac')
+    const mIn = easeOut(seg(t, 2.5, 3.4))
+    const mOut = easeInOut(seg(t, 10.9, 11.7))
+    mac.style.opacity = String(Math.min(mIn, 1 - mOut))
+    const bob = Math.sin(t * 1.4) * 8
+    mac.style.transform =
+      `translateY(${(1 - mIn) * 160 + bob}px) translateX(${-mOut * 620}px) ` +
+      `scale(${0.96 + mIn * 0.04 - mOut * 0.08})`
+    if (t >= 2.4 && t <= 11.7) {
+      const p = seg(t, 3.0, 10.9)
+      const idx = Math.min(DESK_FRAMES - 1, Math.floor(easeInOut(p) * (DESK_FRAMES - 1)))
+      if (idx !== lastMac) { macImg.src = `frames/desktop/f${pad(idx)}.jpg`; lastMac = idx }
+    }
+
+    /* ---------- iPhone: 11.0 – 17.4 ---------- */
+    const phone = $('phone')
+    const pIn = easeOut(seg(t, 11.1, 12.0))
+    const pOut = easeInOut(seg(t, 16.8, 17.5))
+    phone.style.opacity = String(Math.min(pIn, 1 - pOut))
+    const pBob = Math.sin(t * 1.6 + 1) * 7
+    phone.style.transform =
+      `translateY(${(1 - pIn) * 220 + pBob}px) translateX(${(1 - pIn) * 420}px) ` +
+      `rotate(${(1 - pIn) * 6}deg) scale(${0.96 + pIn * 0.04 - pOut * 0.06})`
+    if (t >= 11.0 && t <= 17.5) {
+      const p = seg(t, 11.9, 16.7)
+      const idx = Math.min(MOB_FRAMES - 1, Math.floor(easeInOut(p) * (MOB_FRAMES - 1)))
+      if (idx !== lastIp) { ipImg.src = `frames/mobile/f${pad(idx)}.jpg`; lastIp = idx }
+    }
+
+    /* ---------- chips + caption ---------- */
+    const chips = $('chips')
+    const chIn = easeOut(seg(t, 3.6, 4.4))
+    const chOut = easeInOut(seg(t, 10.6, 11.2))
+    chips.style.opacity = String(Math.min(chIn, 1 - chOut))
+    chips.style.transform = `translateY(${(1 - chIn) * 40}px)`
+
+    const cap = $('cap')
+    let cIn, cOut
+    if (t < 11.2) { cIn = easeOut(seg(t, 3.2, 4.0)); cOut = easeInOut(seg(t, 10.6, 11.2)) }
+    else { cIn = easeOut(seg(t, 12.0, 12.7)); cOut = easeInOut(seg(t, 16.6, 17.2)) }
+    cap.style.opacity = String(Math.min(cIn, 1 - cOut))
+    cap.style.transform = `translateY(${(1 - cIn) * 40}px)`
+    $('cap-line').innerHTML = t < 11.2
+      ? 'Every ride. Every rider. <em style="font-style:normal;color:#e8232a">Connected.</em>'
+      : 'One companion. <em style="font-style:normal;color:#e8232a">Every screen.</em>'
+    $('cap-sub').textContent = t < 11.2 ? 'SCROLL THE FULL EXPERIENCE' : 'BUILT FOR THE RIDE, SIZED FOR YOUR POCKET'
+
+    /* ---------- outro: 17.4 – 20 ---------- */
+    const outro = $('outro')
+    const oIn = easeOut(seg(t, 17.5, 18.3))
+    outro.style.opacity = String(oIn)
+    outro.style.transform = `translateY(${(1 - oIn) * 80}px) scale(${0.96 + oIn * 0.04})`
+  }
+
+  /* preload every frame, then flag ready for the renderer */
+  window.__ready = (async () => {
+    const jobs = []
+    for (let i = 0; i < DESK_FRAMES; i++) jobs.push(`frames/desktop/f${pad(i)}.jpg`)
+    for (let i = 0; i < MOB_FRAMES; i++) jobs.push(`frames/mobile/f${pad(i)}.jpg`)
+    await Promise.all(
+      jobs.map((src) => new Promise((res) => {
+        const im = new Image()
+        im.onload = im.onerror = res
+        im.src = src
+      })),
+    )
+    await document.fonts.ready
+    seek(0)
+    return true
+  })()
+</script>
+</body>
+</html>

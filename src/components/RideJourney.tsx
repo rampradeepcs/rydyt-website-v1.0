@@ -134,9 +134,21 @@ export default function RideJourney() {
   const [chapter, setChapter] = useState(0)
   const chapterRef = useRef(0)
 
-  /* load the <model-viewer> element definition off the critical path */
+  /* load the <model-viewer> element definition (and with it the 3D model)
+     only when the journey section approaches the viewport */
   useEffect(() => {
-    import('@google/model-viewer')
+    const el = rootRef.current!
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          import('@google/model-viewer')
+          io.disconnect()
+        }
+      },
+      { rootMargin: '1200px 0px' },
+    )
+    io.observe(el)
+    return () => io.disconnect()
   }, [])
 
   useEffect(() => {

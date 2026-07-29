@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'motion/react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
@@ -22,6 +22,16 @@ const CHIPS = [
 export default function Hero() {
   const rootRef = useRef<HTMLElement>(null)
   const sceneRef = useRef<HTMLDivElement>(null)
+  /* the 9MB background video is desktop ambience — skip it on phones,
+     where it sits behind heavy shading and costs most of the page weight */
+  const [showVideo, setShowVideo] = useState(() => window.matchMedia('(min-width: 900px)').matches)
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 900px)')
+    const onChange = () => setShowVideo(mq.matches)
+    mq.addEventListener('change', onChange)
+    onChange()
+    return () => mq.removeEventListener('change', onChange)
+  }, [])
 
   /* mouse parallax on the phone scene */
   useEffect(() => {
@@ -60,17 +70,19 @@ export default function Hero() {
   return (
     <section className="hero" id="top" ref={rootRef}>
       <div className="hero-bg">
-        <motion.video
-          className="hero-road-video"
-          src={asset('/assets/hero-road.mp4')}
-          autoPlay
-          muted
-          loop
-          playsInline
-          initial={{ opacity: 0, scale: 1.06 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 2, ease: EASE, delay: 0.3 }}
-        />
+        {showVideo && (
+          <motion.video
+            className="hero-road-video"
+            src={asset('/assets/hero-road.mp4')}
+            autoPlay
+            muted
+            loop
+            playsInline
+            initial={{ opacity: 0, scale: 1.06 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 2, ease: EASE, delay: 0.3 }}
+          />
+        )}
         <div className="hero-bg-shade" />
         <div className="hero-grid" />
         <div className="hero-beam hero-beam-1" />
@@ -147,7 +159,7 @@ export default function Hero() {
             <div className="hero-phone-glow" />
             <div className="iphone-wrap">
               <motion.img
-                src={asset('/assets/dashboard-phone.png')}
+                src={asset('/assets/dashboard-phone.webp')}
                 alt="RYDYT dashboard on an iPhone"
                 draggable={false}
                 initial={{ opacity: 0, y: 110, scale: 1.06 }}

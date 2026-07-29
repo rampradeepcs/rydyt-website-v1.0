@@ -95,7 +95,7 @@ export default function DownloadCTA() {
         <div className="cta-phone">
           <div className="cta-phone-glow" />
           <img
-            src={asset('/assets/download-banner.png')}
+            src={asset('/assets/download-banner.webp')}
             alt="RYDYT app home screen on a phone"
             loading="lazy"
             draggable={false}

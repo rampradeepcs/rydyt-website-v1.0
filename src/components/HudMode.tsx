@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Gauge, PhoneCall, Siren, MapPin } from 'lucide-react'
+import LazyVideo from './LazyVideo'
 import './hudmode.css'
 import { asset } from '../lib/asset'
 
@@ -68,12 +69,8 @@ export default function HudMode() {
       <div className="hud-stage">
         <div className="hud-device" data-cursor="hover">
           <div className="hud-device-glow" />
-          <video
+          <LazyVideo
             src={asset('/assets/hud-stats.mp4')}
-            autoPlay
-            muted
-            loop
-            playsInline
             aria-label="RYDYT HUD mode showing live ride statistics"
           />
         </div>

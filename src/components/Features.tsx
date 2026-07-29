@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MessageSquareText, CalendarRange, Bike, LineChart, Home } from 'lucide-react'
+import LazyVideo from './LazyVideo'
 import './features.css'
 import { asset } from '../lib/asset'
 
@@ -13,28 +14,28 @@ const PANELS = [
     tag: 'Command center',
     title: 'One home for every ride',
     sub: 'Quick actions, upcoming rides and bike logs — the whole day before you touch the starter.',
-    media: { type: 'img', src: asset('/assets/app-home.png'), alt: 'RYDYT home dashboard screen' },
+    media: { type: 'img', src: asset('/assets/app-home.webp'), alt: 'RYDYT home dashboard screen' },
   },
   {
     icon: MessageSquareText,
     tag: 'Crew chat',
     title: 'Talk without stopping',
     sub: 'Group chats per ride, per clan, per city. Voice notes that read themselves out at speed.',
-    media: { type: 'img', src: asset('/assets/app-chat.png'), alt: 'RYDYT chat screen with ride groups' },
+    media: { type: 'img', src: asset('/assets/app-chat.webp'), alt: 'RYDYT chat screen with ride groups' },
   },
   {
     icon: CalendarRange,
     tag: 'Events',
     title: 'Find your next horizon',
     sub: 'Track days, breakfast runs, mountain expeditions — discover, book and roll.',
-    media: { type: 'img', src: asset('/assets/app-events.png'), alt: 'RYDYT events discovery screen' },
+    media: { type: 'img', src: asset('/assets/app-events.webp'), alt: 'RYDYT events discovery screen' },
   },
   {
     icon: Bike,
     tag: 'Garage',
     title: 'Your machines, remembered',
     sub: 'Every bike, every service, every document. The garage keeps the paperwork so you keep riding.',
-    media: { type: 'img', src: asset('/assets/app-garage.png'), alt: 'RYDYT garage screen with a Royal Enfield Himalayan' },
+    media: { type: 'img', src: asset('/assets/app-garage.webp'), alt: 'RYDYT garage screen with a Royal Enfield Himalayan' },
   },
   {
     icon: LineChart,
@@ -114,14 +115,7 @@ export default function Features() {
                 <div className="feature-phone-glow" />
                 {p.media.type === 'video' ? (
                   <div className="feature-phone-frame">
-                    <video
-                      src={p.media.src}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      aria-label={p.media.alt}
-                    />
+                    <LazyVideo src={p.media.src} aria-label={p.media.alt} />
                     <span className="feature-phone-island" aria-hidden />
                   </div>
                 ) : (

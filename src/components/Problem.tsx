@@ -101,7 +101,7 @@ export default function Problem() {
           <div className="problem-map glass" aria-hidden>
             <img
               className="problem-map-bg"
-              src={asset('/assets/map.png')}
+              src={asset('/assets/map.webp')}
               alt=""
               loading="lazy"
               draggable={false}

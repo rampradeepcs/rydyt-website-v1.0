@@ -62,7 +62,7 @@ export default function Intro() {
           <div className="intro-glow" aria-hidden />
           <img
             className="intro-phone"
-            src={asset('/assets/app-home.png')}
+            src={asset('/assets/app-home.webp')}
             alt="RYDYT home screen with quick actions and upcoming rides"
             loading="lazy"
             draggable={false}

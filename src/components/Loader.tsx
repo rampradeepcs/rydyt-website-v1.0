@@ -18,7 +18,9 @@ export default function Loader({ onDone }: { onDone: () => void }) {
     let heroLoaded = false
     img.onload = () => (heroLoaded = true)
     img.onerror = () => (heroLoaded = true)
-    img.src = asset('/assets/dashboard-phone.png')
+    img.src = asset('/assets/dashboard-phone.webp')
+    /* never hold the page hostage on a slow connection */
+    const bail = setTimeout(() => (heroLoaded = true), 5000)
 
     const tick = (now: number) => {
       const t = Math.min((now - start) / 2400, 1)
@@ -33,7 +35,10 @@ export default function Loader({ onDone }: { onDone: () => void }) {
       raf = requestAnimationFrame(tick)
     }
     raf = requestAnimationFrame(tick)
-    return () => cancelAnimationFrame(raf)
+    return () => {
+      cancelAnimationFrame(raf)
+      clearTimeout(bail)
+    }
   }, [onDone])
 
   return (

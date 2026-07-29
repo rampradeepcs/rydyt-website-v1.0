@@ -33,7 +33,6 @@
   gap: 18px;
   transition: transform 0.45s var(--ease-out), border-color 0.4s, box-shadow 0.5s;
   transform-style: preserve-3d;
-  animation: card-drift 7s ease-in-out infinite;
   will-change: transform;
 }
 
@@ -98,7 +97,19 @@
   height: 6px;
   border-radius: 2px;
   background: var(--red);
-  animation: wave-bounce 1s ease-in-out infinite;
+}
+
+/* static waveform — varied bar heights, no looping motion */
+.community-wave i:nth-child(2n) {
+  height: 12px;
+}
+
+.community-wave i:nth-child(3n) {
+  height: 15px;
+}
+
+.community-wave i:nth-child(5n) {
+  height: 9px;
 }
 
 @keyframes wave-bounce {

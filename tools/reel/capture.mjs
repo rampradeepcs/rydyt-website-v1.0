@@ -39,6 +39,6 @@ async function capture({ name, width, height, dpr, frames, settle = 90 }) {
   console.log(name, 'done —', frames, 'frames')
 }
 
-await capture({ name: 'desktop', width: 1440, height: 900, dpr: 1, frames: 264 })
-await capture({ name: 'mobile', width: 390, height: 844, dpr: 2, frames: 168 })
+await capture({ name: 'desktop', width: 1440, height: 900, dpr: 1, frames: 426, settle: 80 })
+await capture({ name: 'mobile', width: 390, height: 844, dpr: 2, frames: 288, settle: 80 })
 console.log('capture complete')

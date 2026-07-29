@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url'
 
 const HERE = path.dirname(fileURLToPath(import.meta.url))
 const FPS = 30
-const DURATION = 20
+const DURATION = 32
 const OUT_DIR = path.join(HERE, 'render')
 const FINAL = process.argv[2] || path.join(process.env.HOME, 'Desktop', 'rydyt-launch-reel.mp4')
 

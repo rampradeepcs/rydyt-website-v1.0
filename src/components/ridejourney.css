@@ -26,7 +26,25 @@
   background: linear-gradient(180deg, #101318 0%, #22242c 55%, #0a0a0c 100%);
 }
 .journey-mountains .journey-sky {
-  background: linear-gradient(180deg, #0e1016 0%, #2c1a26 55%, #0a0a0c 100%);
+  background: linear-gradient(180deg, #171c2a 0%, #4a2a40 55%, #120f14 100%);
+}
+
+/* the ghat chapter reads brighter: stronger sun, lifted silhouettes */
+.journey-sticky.journey-mountains .journey-sun {
+  opacity: 0.95;
+  filter: blur(5px) brightness(1.25);
+}
+
+.journey-sticky.journey-mountains .journey-mountains {
+  opacity: 0.8;
+}
+
+.journey-sticky.journey-mountains .journey-mountains-far {
+  background: #262635;
+}
+
+.journey-sticky.journey-mountains .journey-mountains-near {
+  background: #16161e;
 }
 .journey-rain .journey-sky {
   background: linear-gradient(180deg, #0b0d12 0%, #161a22 55%, #08090b 100%);

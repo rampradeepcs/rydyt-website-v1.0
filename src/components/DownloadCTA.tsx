@@ -1,7 +1,26 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Apple, Play } from 'lucide-react'
+import { Play } from 'lucide-react'
+
+/* App Store glyph: the "A" mark inside a circle, in lucide's stroke style */
+const AppStoreIcon = ({ size = 16 }: { size?: number }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.7"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden
+  >
+    <circle cx="12" cy="12" r="9.2" />
+    <path d="M8.4 15.8 12 8.4l3.6 7.4" />
+    <path d="M9.2 13.6h5.6" />
+  </svg>
+)
 import MagneticButton from './MagneticButton'
 import Particles from './Particles'
 import { openBetaModal } from './BetaModal'
@@ -77,7 +96,7 @@ export default function DownloadCTA() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Apple size={16} /> App Store
+                <AppStoreIcon size={16} /> App Store
               </a>
               <a
                 className="cta-store glass"

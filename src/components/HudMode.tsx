@@ -37,9 +37,25 @@ const HUD_CARDS = [
 export default function HudMode() {
   const rootRef = useRef<HTMLElement>(null)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const switchTimer = useRef(0)
   const [active, setActive] = useState(0)
   const [inView, setInView] = useState(false)
   const [progress, setProgress] = useState(0)
+  const [leaving, setLeaving] = useState(false)
+
+  /* fade the current clip out, then swap and fade the next one in */
+  const switchTo = (i: number) => {
+    if (i === active && !leaving) return
+    window.clearTimeout(switchTimer.current)
+    setLeaving(true)
+    switchTimer.current = window.setTimeout(() => {
+      setProgress(0)
+      setActive(i)
+      setLeaving(false)
+    }, 280)
+  }
+
+  useEffect(() => () => window.clearTimeout(switchTimer.current), [])
 
   /* entrance animations */
   useEffect(() => {
@@ -115,6 +131,7 @@ export default function HudMode() {
           <video
             ref={videoRef}
             key={card.video}
+            className={leaving ? 'is-leaving' : ''}
             src={asset(card.video)}
             muted
             playsInline
@@ -125,10 +142,7 @@ export default function HudMode() {
               const el = e.currentTarget
               if (el.duration) setProgress(el.currentTime / el.duration)
             }}
-            onEnded={() => {
-              setProgress(0)
-              setActive((i) => (i + 1) % HUD_CARDS.length)
-            }}
+            onEnded={() => switchTo((active + 1) % HUD_CARDS.length)}
           />
         </div>
       </div>
@@ -141,10 +155,7 @@ export default function HudMode() {
             data-cursor="hover"
             role="tab"
             aria-selected={i === active}
-            onClick={() => {
-              setProgress(0)
-              setActive(i)
-            }}
+            onClick={() => switchTo(i)}
           >
             <c.icon size={20} strokeWidth={1.6} />
             <h3>{c.title}</h3>

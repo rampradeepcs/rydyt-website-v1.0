@@ -111,3 +111,28 @@
   font-size: 13px;
   line-height: 1.6;
 }
+
+/* mobile: compact 2x2 tabs so every tab stays visible while cycling */
+@media (max-width: 720px) {
+  .hud-stage {
+    margin-bottom: 28px;
+  }
+
+  .hud-cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .hud-card {
+    padding: 14px 14px 16px;
+  }
+
+  .hud-card h3 {
+    font-size: 0.85rem;
+    margin: 8px 0 0;
+  }
+
+  .hud-card p {
+    display: none;
+  }
+}
